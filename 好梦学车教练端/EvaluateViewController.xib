@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluateViewController">
+            <connections>
+                <outlet property="tableView" destination="NgT-La-gau" id="ePh-Up-5nG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NgT-La-gau">
+                    <rect key="frame" x="0.0" y="64" width="375" height="557"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ri-Wm-3iV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人评价" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcI-Wk-0O8">
+                            <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="4GG-Hj-REL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="2ta-AM-n49"/>
+                        <constraint firstItem="XcI-Wk-0O8" firstAttribute="leading" secondItem="8Ri-Wm-3iV" secondAttribute="leading" id="8b8-Jc-IU9"/>
+                        <constraint firstAttribute="bottom" secondItem="XcI-Wk-0O8" secondAttribute="bottom" id="dwV-8N-GAk"/>
+                        <constraint firstAttribute="trailing" secondItem="XcI-Wk-0O8" secondAttribute="trailing" id="ypY-9G-YdI"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="NgT-La-gau" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MzC-lZ-9st"/>
+                <constraint firstItem="8Ri-Wm-3iV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vhv-ii-Deg"/>
+                <constraint firstAttribute="trailing" secondItem="NgT-La-gau" secondAttribute="trailing" id="lnE-wQ-9V2"/>
+                <constraint firstAttribute="trailing" secondItem="8Ri-Wm-3iV" secondAttribute="trailing" id="oBj-1R-YE2"/>
+                <constraint firstItem="NgT-La-gau" firstAttribute="top" secondItem="8Ri-Wm-3iV" secondAttribute="bottom" id="qzD-O9-eib"/>
+                <constraint firstItem="8Ri-Wm-3iV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r3I-XZ-YhU"/>
+                <constraint firstAttribute="bottom" secondItem="NgT-La-gau" secondAttribute="bottom" constant="46" id="xp7-UR-8Yg"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="98.5"/>
+        </view>
+    </objects>
+</document>

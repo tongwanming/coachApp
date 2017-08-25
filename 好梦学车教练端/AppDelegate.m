@@ -7,17 +7,39 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "LaunchIntroductionView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate{
+     MainViewController *main;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //设置主题window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    main = [[MainViewController alloc] init];
+    self.window.rootViewController = main;
+    [self.window makeKeyAndVisible];
+    main.delegate = self;
+    [LaunchIntroductionView sharedWithImages:@[@"welcome01.jpg",@"welcome02.jpg",@"welcome031.jpg"] buttonImage:@"" buttonFrame:CGRectMake(kScreen_width/2 - 150/2, kScreen_height - 100, 150, 45)];
     return YES;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([viewController.title isEqualToString:@""]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showChoosedStduents" object:nil];
+        
+        return NO;
+    }else
+        return YES;
 }
 
 

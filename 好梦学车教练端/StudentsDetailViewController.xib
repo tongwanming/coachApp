@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StudentsDetailViewController">
+            <connections>
+                <outlet property="btn1" destination="v39-Ey-jVi" id="xC2-ad-wCE"/>
+                <outlet property="btn2" destination="Vyt-Ci-Mp0" id="sXt-fP-Xs5"/>
+                <outlet property="btn3" destination="gO3-9z-igb" id="WTZ-31-ywd"/>
+                <outlet property="callBtn" destination="F7k-di-aTE" id="uRF-rv-iJE"/>
+                <outlet property="logoImageView" destination="eIC-E7-RqW" id="W3f-1h-LPL"/>
+                <outlet property="messageBtn" destination="Ypm-iX-42M" id="eEc-aC-TKt"/>
+                <outlet property="nameLabel" destination="rhf-b2-PvW" id="meC-KJ-0v4"/>
+                <outlet property="progressLabel" destination="9Wn-Yb-GzO" id="6vm-3J-gaO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmd-nB-lDY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv3-zy-wFq">
+                            <rect key="frame" x="20" y="20" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Qvu-Ce-zyC"/>
+                                <constraint firstAttribute="width" constant="44" id="YdL-Gz-388"/>
+                            </constraints>
+                            <state key="normal" image="nav_studentdetails_btn_back.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="fC4-wl-0e4"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学员详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-kx-CO5">
+                            <rect key="frame" x="112.5" y="20" width="150" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Qrz-v3-NPn"/>
+                                <constraint firstAttribute="width" constant="150" id="dDw-Db-bdV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="HV3-hg-Cor"/>
+                        <constraint firstItem="XR4-kx-CO5" firstAttribute="centerX" secondItem="qmd-nB-lDY" secondAttribute="centerX" id="Kx0-fc-Rgp"/>
+                        <constraint firstAttribute="bottom" secondItem="fv3-zy-wFq" secondAttribute="bottom" id="lrH-Vn-Jup"/>
+                        <constraint firstItem="fv3-zy-wFq" firstAttribute="leading" secondItem="qmd-nB-lDY" secondAttribute="leading" constant="20" id="poj-0k-ZP2"/>
+                        <constraint firstAttribute="bottom" secondItem="XR4-kx-CO5" secondAttribute="bottom" id="vWq-yw-J5C"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seaKing.png" translatesAutoresizingMaskIntoConstraints="NO" id="eIC-E7-RqW">
+                    <rect key="frame" x="147.5" y="89" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="2zL-70-SMa"/>
+                        <constraint firstAttribute="height" constant="80" id="vrC-I0-Nwt"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="胡军" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhf-b2-PvW">
+                    <rect key="frame" x="87" y="189" width="200" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="3M1-yr-qnl"/>
+                        <constraint firstAttribute="width" constant="200" id="xdR-G0-YnB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voV-9i-vZ6">
+                    <rect key="frame" x="0.0" y="273" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="EPR-Vj-lFc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4g-qS-hKY">
+                    <rect key="frame" x="0.0" y="388.5" width="375" height="10"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="nal-BI-4Zd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxN-o2-Ua7">
+                    <rect key="frame" x="0.0" y="398.5" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学车进度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR9-Cm-zhu">
+                            <rect key="frame" x="20" y="21.5" width="100" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="C7e-md-EXP"/>
+                                <constraint firstAttribute="height" constant="16" id="MVL-DX-zfT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_my_go.png" translatesAutoresizingMaskIntoConstraints="NO" id="oXD-Gp-bbH">
+                            <rect key="frame" x="347" y="23.5" width="8" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="8" id="Ye7-jB-7ud"/>
+                                <constraint firstAttribute="height" constant="14" id="uMq-d4-1XL"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="科目二考试中" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wn-Yb-GzO">
+                            <rect key="frame" x="185" y="22.5" width="150" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="BXc-As-o7M"/>
+                                <constraint firstAttribute="height" constant="16" id="RjR-tK-me5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.95294117647058818" green="0.61568627450980395" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="9Wn-Yb-GzO" firstAttribute="centerY" secondItem="FxN-o2-Ua7" secondAttribute="centerY" id="3UH-Fv-ehN"/>
+                        <constraint firstItem="KR9-Cm-zhu" firstAttribute="leading" secondItem="FxN-o2-Ua7" secondAttribute="leading" constant="20" id="858-4C-4PJ"/>
+                        <constraint firstItem="oXD-Gp-bbH" firstAttribute="leading" secondItem="9Wn-Yb-GzO" secondAttribute="trailing" constant="12" id="FXq-tZ-crZ"/>
+                        <constraint firstAttribute="trailing" secondItem="oXD-Gp-bbH" secondAttribute="trailing" constant="20" id="Hag-do-MUe"/>
+                        <constraint firstAttribute="height" constant="60" id="WAb-qa-A7j"/>
+                        <constraint firstItem="KR9-Cm-zhu" firstAttribute="centerY" secondItem="FxN-o2-Ua7" secondAttribute="centerY" id="vjl-1W-1Sb"/>
+                        <constraint firstItem="oXD-Gp-bbH" firstAttribute="centerY" secondItem="FxN-o2-Ua7" secondAttribute="centerY" id="xcg-E0-qz9"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改备注信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1J-EM-jvc">
+                    <rect key="frame" x="142.5" y="219" width="90" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="3fD-ef-1w9"/>
+                        <constraint firstAttribute="height" constant="14" id="wIH-Oi-rIc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnC-Rq-lA9">
+                    <rect key="frame" x="232.5" y="211" width="117.5" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="WmV-Tc-Bct"/>
+                    </constraints>
+                    <state key="normal" image="btn_studentdetails_edit.png"/>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="txD-Tz-vHV"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HT9-mc-pao">
+                    <rect key="frame" x="0.0" y="458.5" width="375" height="208.5"/>
+                    <subviews>
+                        <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7k-di-aTE">
+                            <rect key="frame" x="20" y="30" width="335" height="50"/>
+                            <color key="backgroundColor" red="0.0" green="0.62745098040000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="jIa-Qt-dMX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                            <state key="normal" title="拨打电话" image="icon_studentdetails_call.png"/>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="FVo-cK-zr3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypm-iX-42M">
+                            <rect key="frame" x="20" y="95" width="335" height="50"/>
+                            <color key="backgroundColor" red="0.10196078431372549" green="0.70588235294117641" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="g6k-hq-lZT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                            <state key="normal" title="发短信" image="icon_studentdetails_message.png"/>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="HJN-Qf-AtU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="F7k-di-aTE" secondAttribute="trailing" constant="20" id="01u-ng-l9H"/>
+                        <constraint firstItem="F7k-di-aTE" firstAttribute="leading" secondItem="HT9-mc-pao" secondAttribute="leading" constant="20" id="2qT-0g-kkN"/>
+                        <constraint firstItem="Ypm-iX-42M" firstAttribute="leading" secondItem="HT9-mc-pao" secondAttribute="leading" constant="20" id="Gch-x0-rS6"/>
+                        <constraint firstAttribute="trailing" secondItem="Ypm-iX-42M" secondAttribute="trailing" constant="20" id="TqY-bN-rBg"/>
+                        <constraint firstItem="F7k-di-aTE" firstAttribute="top" secondItem="HT9-mc-pao" secondAttribute="top" constant="30" id="eaT-Ax-Hqa"/>
+                        <constraint firstItem="Ypm-iX-42M" firstAttribute="top" secondItem="F7k-di-aTE" secondAttribute="bottom" constant="15" id="r4A-nj-dJR"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v39-Ey-jVi" customClass="FirstTopBtn">
+                    <rect key="frame" x="0.0" y="298.5" width="125" height="60"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                    <state key="normal" title="考场小灶班" image="icon_studentdetails_car.png">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyt-Ci-Mp0" customClass="FirstTopBtn">
+                    <rect key="frame" x="125" y="298.5" width="125" height="60"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="张教练" image="icon_studentdetails_people.png">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO3-9z-igb" customClass="FirstTopBtn">
+                    <rect key="frame" x="250" y="298.5" width="125" height="60"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="牛角沱训练场" image="icon_studentdetails_position.png">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rhf-b2-PvW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="07N-0p-2Ic"/>
+                <constraint firstAttribute="trailing" secondItem="HT9-mc-pao" secondAttribute="trailing" id="26V-mZ-ZGk"/>
+                <constraint firstItem="voV-9i-vZ6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="273" id="3cS-OR-4GL"/>
+                <constraint firstItem="v39-Ey-jVi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="49s-XH-STx"/>
+                <constraint firstItem="R4g-qS-hKY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8On-BS-Ocq"/>
+                <constraint firstItem="R4g-qS-hKY" firstAttribute="top" secondItem="voV-9i-vZ6" secondAttribute="bottom" constant="115" id="AKb-Up-YpR"/>
+                <constraint firstItem="rhf-b2-PvW" firstAttribute="top" secondItem="eIC-E7-RqW" secondAttribute="bottom" constant="20" id="Aiq-Mh-1Yp"/>
+                <constraint firstItem="HT9-mc-pao" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Er6-qQ-EP9"/>
+                <constraint firstItem="Vyt-Ci-Mp0" firstAttribute="leading" secondItem="v39-Ey-jVi" secondAttribute="trailing" id="IDO-mY-UWM"/>
+                <constraint firstItem="R4g-qS-hKY" firstAttribute="top" secondItem="gO3-9z-igb" secondAttribute="bottom" constant="30" id="IK2-IK-hw3"/>
+                <constraint firstItem="FxN-o2-Ua7" firstAttribute="top" secondItem="R4g-qS-hKY" secondAttribute="bottom" id="Iz7-p6-AbV"/>
+                <constraint firstItem="HT9-mc-pao" firstAttribute="top" secondItem="FxN-o2-Ua7" secondAttribute="bottom" id="N6N-3v-Ru5"/>
+                <constraint firstAttribute="trailing" secondItem="R4g-qS-hKY" secondAttribute="trailing" id="OBV-Rx-i8Q"/>
+                <constraint firstItem="voV-9i-vZ6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rg9-gq-mzV"/>
+                <constraint firstItem="v39-Ey-jVi" firstAttribute="top" secondItem="voV-9i-vZ6" secondAttribute="bottom" constant="25" id="Sof-6n-Bab"/>
+                <constraint firstItem="gnC-Rq-lA9" firstAttribute="leading" secondItem="n1J-EM-jvc" secondAttribute="trailing" id="UOF-uX-aqa"/>
+                <constraint firstItem="gO3-9z-igb" firstAttribute="top" secondItem="voV-9i-vZ6" secondAttribute="bottom" constant="25" id="VNL-bG-SvP"/>
+                <constraint firstAttribute="bottom" secondItem="HT9-mc-pao" secondAttribute="bottom" id="Vnu-gg-rtb"/>
+                <constraint firstItem="gO3-9z-igb" firstAttribute="leading" secondItem="Vyt-Ci-Mp0" secondAttribute="trailing" id="WyJ-BO-gyJ"/>
+                <constraint firstAttribute="trailing" secondItem="gO3-9z-igb" secondAttribute="trailing" id="XCm-cX-pEF"/>
+                <constraint firstItem="v39-Ey-jVi" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1:3" id="Z1R-Ay-Ww0"/>
+                <constraint firstItem="Vyt-Ci-Mp0" firstAttribute="top" secondItem="voV-9i-vZ6" secondAttribute="bottom" constant="25" id="a4x-W3-iAw"/>
+                <constraint firstItem="n1J-EM-jvc" firstAttribute="top" secondItem="rhf-b2-PvW" secondAttribute="bottom" constant="10" id="hBT-Ve-V7l"/>
+                <constraint firstItem="n1J-EM-jvc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hef-EP-ZBr"/>
+                <constraint firstItem="eIC-E7-RqW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i73-q9-iVf"/>
+                <constraint firstItem="gnC-Rq-lA9" firstAttribute="centerY" secondItem="n1J-EM-jvc" secondAttribute="centerY" id="keD-Av-8FK"/>
+                <constraint firstItem="R4g-qS-hKY" firstAttribute="top" secondItem="v39-Ey-jVi" secondAttribute="bottom" constant="30" id="oeq-fX-HlI"/>
+                <constraint firstItem="qmd-nB-lDY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oqc-5W-2qb"/>
+                <constraint firstItem="R4g-qS-hKY" firstAttribute="top" secondItem="Vyt-Ci-Mp0" secondAttribute="bottom" constant="30" id="pk1-LU-kXe"/>
+                <constraint firstItem="Vyt-Ci-Mp0" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1:3" id="pva-U2-bQ6"/>
+                <constraint firstAttribute="trailing" secondItem="FxN-o2-Ua7" secondAttribute="trailing" id="sEs-pW-HWO"/>
+                <constraint firstItem="FxN-o2-Ua7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uZD-BA-oNc"/>
+                <constraint firstAttribute="trailing" secondItem="gnC-Rq-lA9" secondAttribute="trailing" constant="25" id="xMs-EA-gGj"/>
+                <constraint firstAttribute="trailing" secondItem="qmd-nB-lDY" secondAttribute="trailing" id="xSC-Dz-a3a"/>
+                <constraint firstAttribute="trailing" secondItem="voV-9i-vZ6" secondAttribute="trailing" id="yOA-ku-Nnj"/>
+                <constraint firstItem="eIC-E7-RqW" firstAttribute="top" secondItem="qmd-nB-lDY" secondAttribute="bottom" constant="25" id="yRb-pk-u7T"/>
+                <constraint firstItem="qmd-nB-lDY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zvh-aA-qlb"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="98.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_my_go.png" width="8" height="14"/>
+        <image name="btn_studentdetails_edit.png" width="15" height="15"/>
+        <image name="icon_studentdetails_call.png" width="20" height="20"/>
+        <image name="icon_studentdetails_car.png" width="36" height="23"/>
+        <image name="icon_studentdetails_message.png" width="22" height="20"/>
+        <image name="icon_studentdetails_people.png" width="26" height="30"/>
+        <image name="icon_studentdetails_position.png" width="22" height="30"/>
+        <image name="nav_studentdetails_btn_back.png" width="12" height="20"/>
+        <image name="seaKing.png" width="516" height="482"/>
+    </resources>
+</document>

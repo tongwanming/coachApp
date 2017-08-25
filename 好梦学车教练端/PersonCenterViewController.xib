@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonCenterViewController">
+            <connections>
+                <outlet property="tableView" destination="whn-5O-0w3" id="nME-1D-uyM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-Hm-c3d">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPC-7E-sxc">
+                            <rect key="frame" x="16" y="20" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="08a-fE-zw0"/>
+                                <constraint firstAttribute="height" constant="44" id="G6f-Op-n7a"/>
+                            </constraints>
+                            <state key="normal" image="nav_studentdetails_btn_back.png"/>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="60t-Oe-PdG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLm-QN-uL3" customClass="SamailerImgBtn">
+                            <rect key="frame" x="331" y="20" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="9Kx-BR-t7S"/>
+                                <constraint firstAttribute="height" constant="44" id="KZG-LN-ITq"/>
+                            </constraints>
+                            <state key="normal" image="btn_service.png"/>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="S4P-VY-UAd"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rw-rf-K5T">
+                            <rect key="frame" x="112" y="20" width="150" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="ZBi-dc-zEC"/>
+                                <constraint firstAttribute="height" constant="44" id="d6h-Hp-O0j"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="6z3-ll-DCs"/>
+                        <constraint firstAttribute="bottom" secondItem="1Rw-rf-K5T" secondAttribute="bottom" id="7P1-b3-gpE"/>
+                        <constraint firstAttribute="bottom" secondItem="IPC-7E-sxc" secondAttribute="bottom" id="BfH-hM-NQ1"/>
+                        <constraint firstItem="1Rw-rf-K5T" firstAttribute="centerX" secondItem="Wbe-Hm-c3d" secondAttribute="centerX" id="GIC-oW-7A9"/>
+                        <constraint firstItem="IPC-7E-sxc" firstAttribute="leading" secondItem="Wbe-Hm-c3d" secondAttribute="leading" constant="16" id="GXp-Dp-3bV"/>
+                        <constraint firstAttribute="trailing" secondItem="zLm-QN-uL3" secondAttribute="trailing" id="Q1d-b8-ytc"/>
+                        <constraint firstAttribute="bottom" secondItem="zLm-QN-uL3" secondAttribute="bottom" id="tjV-2h-RcG"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="whn-5O-0w3">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="whn-5O-0w3" firstAttribute="top" secondItem="Wbe-Hm-c3d" secondAttribute="bottom" id="02d-pK-ApK"/>
+                <constraint firstItem="whn-5O-0w3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6zO-2k-nBP"/>
+                <constraint firstAttribute="trailing" secondItem="whn-5O-0w3" secondAttribute="trailing" id="LxB-y5-cDh"/>
+                <constraint firstItem="Wbe-Hm-c3d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TnM-Af-Cpr"/>
+                <constraint firstAttribute="bottom" secondItem="whn-5O-0w3" secondAttribute="bottom" id="ZXr-Xf-DLG"/>
+                <constraint firstItem="Wbe-Hm-c3d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="knb-wu-XW0"/>
+                <constraint firstAttribute="trailing" secondItem="Wbe-Hm-c3d" secondAttribute="trailing" id="zN6-a8-K80"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_service.png" width="26" height="27"/>
+        <image name="nav_studentdetails_btn_back.png" width="12" height="20"/>
+    </resources>
+</document>
