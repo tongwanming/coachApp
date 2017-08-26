@@ -7,6 +7,7 @@
 //
 
 #import "BasicViewController.h"
+#import "StudentNewsModel.h"
 
 @protocol learningViewControllerDelegate <NSObject>
 
@@ -23,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UIView *subView;
 
+
 @property (nonatomic, weak) id<learningViewControllerDelegate>delegate;
+
+- (void)choosedPersonBlock:(void(^)(StudentNewsModel *model))block;
 
 @end

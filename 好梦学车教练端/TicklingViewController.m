@@ -47,9 +47,9 @@
         
         
         //    NSURL *url = [NSURL URLWithString:urlstr];
-        NSURL *url = [NSURL URLWithString:@"http:///101.37.161.13:7072/user-service/feedback/add"];
+        NSURL *url = [NSURL URLWithString:@"http:///101.37.29.125:7072/user-service/feedback/add"];
         NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogined"];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:240];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
         [request setHTTPBody:jsonData];
         [request setValue:token forHTTPHeaderField:@"HMAuthorization"];
         [request setHTTPMethod:@"POST"];

@@ -29,7 +29,7 @@
     self.window.rootViewController = main;
     [self.window makeKeyAndVisible];
     main.delegate = self;
-    [LaunchIntroductionView sharedWithImages:@[@"welcome01.jpg",@"welcome02.jpg",@"welcome031.jpg"] buttonImage:@"" buttonFrame:CGRectMake(kScreen_width/2 - 150/2, kScreen_height - 100, 150, 45)];
+//    [LaunchIntroductionView sharedWithImages:@[@"welcome01.jpg",@"welcome02.jpg",@"welcome031.jpg"] buttonImage:@"" buttonFrame:CGRectMake(kScreen_width/2 - 150/2, kScreen_height - 100, 150, 45)];
     return YES;
 }
 

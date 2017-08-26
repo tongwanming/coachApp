@@ -9,9 +9,13 @@
 #import "learningViewController.h"
 #import "LearningCollectionViewCell.h"
 
+typedef void(^StudentBlock)(StudentNewsModel *);
+
 @interface learningViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+
+@property (nonatomic, strong) StudentBlock student_block;
 
 @end
 
@@ -39,6 +43,10 @@
     }else{
     
     }
+}
+
+- (void)choosedPersonBlock:(void (^)(StudentNewsModel *))block{
+    _student_block = block;
 }
 
 - (void)viewDidLoad {
@@ -83,13 +91,16 @@
     LearningCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([LearningCollectionViewCell class]) forIndexPath:indexPath];
     
     cell.isSelected = NO;
+    cell.idexPath = indexPath;
     if (indexPath == _indexPath) {
         cell.isSelected = YES;
     }else{
         cell.isSelected = NO;
     }
     
-    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor redColor];
+    cell.imageView.image = [UIImage imageNamed:@"bg_addrecord_avatar.png"];
+    cell.titleLabel.text = [NSString stringWithFormat:@"---%ld",(long)indexPath.row];
     return cell;
 }
 
@@ -97,6 +108,13 @@
 
     _indexPath = indexPath;
     [self.collectionView reloadData];
+    for (LearningCollectionViewCell *cell in _collectionView.visibleCells) {
+        if (cell.idexPath == indexPath) {
+            _logoImageView.image = cell.imageView.image;
+            _nameLabel.text = cell.titleLabel.text;
+        }
+    }
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
@@ -129,8 +147,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(20, 15, 20, 15);
 }
-
-
 
 
 

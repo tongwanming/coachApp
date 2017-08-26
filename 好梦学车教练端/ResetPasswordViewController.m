@@ -70,8 +70,8 @@
             NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
             
             //    NSURL *url = [NSURL URLWithString:urlstr];
-            NSURL *url = [NSURL URLWithString:@"http://101.37.161.13:7072/message-service/sms/sendUpdatePwdVerifyCode"];
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:240];
+            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/message-service/sms/sendUpdatePwdVerifyCode"];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -152,7 +152,7 @@
             
             //    NSURL *url = [NSURL URLWithString:urlstr];
             NSURL *url = [NSURL URLWithString:@"http://172.18.21.202:7073/user/modifyPwd"];
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:240];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

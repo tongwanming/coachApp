@@ -100,6 +100,7 @@
 		295AE4B71F4C303900B0991C /* icon_messcenter_system@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 295AE4AF1F4C303900B0991C /* icon_messcenter_system@3x.png */; };
 		295D1A191F4FCC7600DC73DB /* CustonNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295D1A171F4FCC7600DC73DB /* CustonNavViewController.m */; };
 		295D1A1A1F4FCC7600DC73DB /* CustonNavViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295D1A181F4FCC7600DC73DB /* CustonNavViewController.xib */; };
+		295D7A3A1F514D3C003A2262 /* StudentNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 295D7A391F514D3C003A2262 /* StudentNewsModel.m */; };
 		296002481F453DB100507A00 /* SinginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 296002401F453DB100507A00 /* SinginViewController.m */; };
 		296002491F453DB100507A00 /* SinginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 296002411F453DB100507A00 /* SinginViewController.xib */; };
 		2960024A1F453DB100507A00 /* ForgetPasswoordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 296002431F453DB100507A00 /* ForgetPasswoordViewController.m */; };
@@ -368,6 +369,8 @@
 		295D1A161F4FCC7600DC73DB /* CustonNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustonNavViewController.h; sourceTree = "<group>"; };
 		295D1A171F4FCC7600DC73DB /* CustonNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustonNavViewController.m; sourceTree = "<group>"; };
 		295D1A181F4FCC7600DC73DB /* CustonNavViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustonNavViewController.xib; sourceTree = "<group>"; };
+		295D7A381F514D3C003A2262 /* StudentNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentNewsModel.h; sourceTree = "<group>"; };
+		295D7A391F514D3C003A2262 /* StudentNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentNewsModel.m; sourceTree = "<group>"; };
 		2960023F1F453DB100507A00 /* SinginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinginViewController.h; sourceTree = "<group>"; };
 		296002401F453DB100507A00 /* SinginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinginViewController.m; sourceTree = "<group>"; };
 		296002411F453DB100507A00 /* SinginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinginViewController.xib; sourceTree = "<group>"; };
@@ -834,6 +837,8 @@
 				298ED51C1F4173E5003AA4BF /* examingRecordViewController.h */,
 				298ED51D1F4173E5003AA4BF /* examingRecordViewController.m */,
 				298ED51E1F4173E5003AA4BF /* examingRecordViewController.xib */,
+				295D7A381F514D3C003A2262 /* StudentNewsModel.h */,
+				295D7A391F514D3C003A2262 /* StudentNewsModel.m */,
 			);
 			name = "中间加号部分";
 			sourceTree = "<group>";
@@ -1501,6 +1506,7 @@
 				29586B791F3C3843000ACB81 /* UIBarButtonItem+Extension.m in Sources */,
 				296002F51F459CA100507A00 /* UIImage+GIF.m in Sources */,
 				298ED54D1F419E57003AA4BF /* EvaluateTableViewCell.m in Sources */,
+				295D7A3A1F514D3C003A2262 /* StudentNewsModel.m in Sources */,
 				29586B101F3C310D000ACB81 /* LaunchIntroductionView.m in Sources */,
 				295D1A191F4FCC7600DC73DB /* CustonNavViewController.m in Sources */,
 				296002921F456C2500507A00 /* ViewController+MASAdditions.m in Sources */,

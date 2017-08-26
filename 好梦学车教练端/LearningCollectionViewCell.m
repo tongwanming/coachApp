@@ -9,9 +9,6 @@
 #import "LearningCollectionViewCell.h"
 
 @implementation LearningCollectionViewCell{
-    UIImageView *_imageView;
-    
-    UILabel *_titleLabel;
     
     CALayer *_layer;
 }

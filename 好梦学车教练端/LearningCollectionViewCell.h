@@ -12,4 +12,10 @@
 
 @property (nonatomic, assign) BOOL isSelected;
 
+@property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, assign) NSIndexPath *idexPath;
+
 @end
