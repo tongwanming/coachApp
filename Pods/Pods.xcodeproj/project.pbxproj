@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E978F311DD1DFF8B907FF9775CA41F /* Pods-好梦教练-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 943739DBD69566877BABEA627C6E27F5 /* Pods-好梦教练-dummy.m */; };
 		2012864C735C3DD88ECE425F6C981F6B /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 497DBA8BA4A8C9EBDFA07FBBC3ACE366 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		398A5C11EFB816892FD5E18AD24F03D4 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA13B49547960418D0707A709D59E08 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BB046A8995047F865F5688D82C70EA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		3FECFDE87253334FA356C4898AA1478D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		4B3B2EABA01FE0065CA6693CEE33CA92 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 311D3F6E14A7EF30DE63BBEE8E3AABA2 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4DB541C1C41B1C597EC36CDAB5243D1A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22272F17A6959E5FE9219380C58F01BE /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6199817CB29DADBC9AB1D4C44E52F5BA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EAA823440A44A8FCBE8F4EE7A3C789 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		8021697A1557D425AC130472DA1317CC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC4D4F5AC98598580FDA337E3F76139 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		889D48A9B81ADF617C1D4E4E9473E3A9 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 4211BD6BCD62EDC1BF6DD3B4EE96E133 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8BE9745890C1CEC8E06BD360DB5B411A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		98ABF277A45F1AB72A8D02D53FFE67BF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C8244CE374CFDF69D8C13709C33BD7 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		99714143FA44A34F87D1F2AA6D254177 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A5EAFAE48BE34099D30E69F4F52A0FA /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C40CFE1274D588CA1A9DF9394BF76EAE /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BBE3F2A3E00CD4D6DF8431DCB0F6AA /* FMDB-dummy.m */; };
-		CCCAC53B817A0CF6AE1E23ED674BF8A9 /* Pods-好梦学车教练端-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E00C65707912D6729B8B2629353398E9 /* Pods-好梦学车教练端-dummy.m */; };
 		D852415DFD46E85C293E0DDE01868EA2 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5E0932875FA0834F0CCFC4FFFF7BC9 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F00CCFAB93A4F18419CD91217B1D5F66 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 434A960543582C2C2D6D0476BE8984CF /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		482331210D5E568E20D023A6F61F21EC /* PBXContainerItemProxy */ = {
+		719BA48E44861E01C683DDBA0419DF4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -35,34 +35,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1248F10C941981799C31D41AF623EF91 /* Pods-好梦学车教练端-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-好梦学车教练端-frameworks.sh"; sourceTree = "<group>"; };
+		0D71EE0D1B50B4C8A63005C785687317 /* Pods-好梦教练-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-好梦教练-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1770C0AC602F510E3735772568F8B791 /* Pods-好梦教练-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-好梦教练-acknowledgements.plist"; sourceTree = "<group>"; };
 		22272F17A6959E5FE9219380C58F01BE /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		22BBE3F2A3E00CD4D6DF8431DCB0F6AA /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
 		254967C72981864DA1C34670532828C2 /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
 		2902A93409EEF5E02DBCCC75D4CFEE98 /* libjpush-ios-3.0.5.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjpush-ios-3.0.5.a"; sourceTree = "<group>"; };
 		311D3F6E14A7EF30DE63BBEE8E3AABA2 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
-		32B79284165A49BE87B5033B19374FCC /* Pods-好梦学车教练端-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-好梦学车教练端-resources.sh"; sourceTree = "<group>"; };
 		37EAA823440A44A8FCBE8F4EE7A3C789 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
-		38B8D5BE4A122528DC5AB624922C6C14 /* Pods-好梦学车教练端-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-好梦学车教练端-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3D5E0932875FA0834F0CCFC4FFFF7BC9 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		3DCFC10644C4E69EEB49EAD3CF2C1140 /* libPods-好梦教练.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-好梦教练.a"; path = "libPods-好梦教练.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4211BD6BCD62EDC1BF6DD3B4EE96E133 /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
 		434A960543582C2C2D6D0476BE8984CF /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		45F6DCB4C38584180447C269E49C8478 /* JPUSHService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		497DBA8BA4A8C9EBDFA07FBBC3ACE366 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
-		5EADC701C673C537588A4B9C246177D7 /* Pods-好梦学车教练端.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-好梦学车教练端.release.xcconfig"; sourceTree = "<group>"; };
-		5F4B021A956AFD62B718BA1EE0542462 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFMDB.a; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		659443BFF8CAB4D607D9807EE2ADBADB /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFMDB.a; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6A5EAFAE48BE34099D30E69F4F52A0FA /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
 		6C2E7C5CBD0BE5FD3074033B40CDC5C4 /* libjcore-ios-1.1.3.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjcore-ios-1.1.3.a"; sourceTree = "<group>"; };
-		91029838577D4FCE18CD3BA9405E0C7B /* Pods-好梦学车教练端.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-好梦学车教练端.debug.xcconfig"; sourceTree = "<group>"; };
+		815F985403D7073351B64C5FE5757AB6 /* Pods-好梦教练-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-好梦教练-frameworks.sh"; sourceTree = "<group>"; };
+		90A1A483421DBCE9820BC8BC7DAAF6AD /* Pods-好梦教练.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-好梦教练.debug.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95EC625AC91944B7A91671ED2AE755DD /* Pods-好梦学车教练端-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-好梦学车教练端-acknowledgements.plist"; sourceTree = "<group>"; };
+		943739DBD69566877BABEA627C6E27F5 /* Pods-好梦教练-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-好梦教练-dummy.m"; sourceTree = "<group>"; };
 		9CA13B49547960418D0707A709D59E08 /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		9FC4D4F5AC98598580FDA337E3F76139 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
-		BC3403CB6A1AE7928FEDDAADE28BB316 /* libPods-好梦学车教练端.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-好梦学车教练端.a"; path = "libPods-好梦学车教练端.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70FEFF7408153D62914FF024035C733 /* Pods-好梦教练-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-好梦教练-resources.sh"; sourceTree = "<group>"; };
+		B7DD85C603454C86D47FA25ACB4FF735 /* Pods-好梦教练.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-好梦教练.release.xcconfig"; sourceTree = "<group>"; };
 		C4B6BD55284864F4C41F213F76E66389 /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
 		D6C8244CE374CFDF69D8C13709C33BD7 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
-		E00C65707912D6729B8B2629353398E9 /* Pods-好梦学车教练端-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-好梦学车教练端-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +74,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A4D798563688E0FC3ECD59652566174 /* Frameworks */ = {
+		4CF5CFA6EEB15943F98C77FB71A72B75 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BE9745890C1CEC8E06BD360DB5B411A /* Foundation.framework in Frameworks */,
+				3BB046A8995047F865F5688D82C70EA6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0283FEB3FF472865418EFA0083D197B6 /* Pods-好梦教练 */ = {
+			isa = PBXGroup;
+			children = (
+				0D71EE0D1B50B4C8A63005C785687317 /* Pods-好梦教练-acknowledgements.markdown */,
+				1770C0AC602F510E3735772568F8B791 /* Pods-好梦教练-acknowledgements.plist */,
+				943739DBD69566877BABEA627C6E27F5 /* Pods-好梦教练-dummy.m */,
+				815F985403D7073351B64C5FE5757AB6 /* Pods-好梦教练-frameworks.sh */,
+				B70FEFF7408153D62914FF024035C733 /* Pods-好梦教练-resources.sh */,
+				90A1A483421DBCE9820BC8BC7DAAF6AD /* Pods-好梦教练.debug.xcconfig */,
+				B7DD85C603454C86D47FA25ACB4FF735 /* Pods-好梦教练.release.xcconfig */,
+			);
+			name = "Pods-好梦教练";
+			path = "Target Support Files/Pods-好梦教练";
+			sourceTree = "<group>";
+		};
+		05550A79ED963D71E0A3202B1E593BF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				659443BFF8CAB4D607D9807EE2ADBADB /* libFMDB.a */,
+				3DCFC10644C4E69EEB49EAD3CF2C1140 /* libPods-好梦教练.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		364BFD2BC162E725B30613757626DCDE /* JCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +116,14 @@
 			);
 			name = JCore;
 			path = JCore;
+			sourceTree = "<group>";
+		};
+		41F534C8D21E5D07E8306AB470C9499D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0283FEB3FF472865418EFA0083D197B6 /* Pods-好梦教练 */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		7A41F655AE60DEBF433CBA253DF16C55 /* JPush */ = {
@@ -110,8 +142,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				BF72AB463FFAC521422075BF8B34E7A2 /* Pods */,
-				C236ABF7BACE3DEC971C1F2A437CB22B /* Products */,
-				945B890D1DFB2789A4398BFC0E85B22F /* Targets Support Files */,
+				05550A79ED963D71E0A3202B1E593BF5 /* Products */,
+				41F534C8D21E5D07E8306AB470C9499D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,14 +153,6 @@
 				6C2E7C5CBD0BE5FD3074033B40CDC5C4 /* libjcore-ios-1.1.3.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		945B890D1DFB2789A4398BFC0E85B22F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				AA2CD0257091A21873075C087E4DE5D8 /* Pods-好梦学车教练端 */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		A87CC80D86C5201E1CE9F7C5B7296AA4 /* standard */ = {
@@ -147,21 +171,6 @@
 				311D3F6E14A7EF30DE63BBEE8E3AABA2 /* FMResultSet.m */,
 			);
 			name = standard;
-			sourceTree = "<group>";
-		};
-		AA2CD0257091A21873075C087E4DE5D8 /* Pods-好梦学车教练端 */ = {
-			isa = PBXGroup;
-			children = (
-				38B8D5BE4A122528DC5AB624922C6C14 /* Pods-好梦学车教练端-acknowledgements.markdown */,
-				95EC625AC91944B7A91671ED2AE755DD /* Pods-好梦学车教练端-acknowledgements.plist */,
-				E00C65707912D6729B8B2629353398E9 /* Pods-好梦学车教练端-dummy.m */,
-				1248F10C941981799C31D41AF623EF91 /* Pods-好梦学车教练端-frameworks.sh */,
-				32B79284165A49BE87B5033B19374FCC /* Pods-好梦学车教练端-resources.sh */,
-				91029838577D4FCE18CD3BA9405E0C7B /* Pods-好梦学车教练端.debug.xcconfig */,
-				5EADC701C673C537588A4B9C246177D7 /* Pods-好梦学车教练端.release.xcconfig */,
-			);
-			name = "Pods-好梦学车教练端";
-			path = "Target Support Files/Pods-好梦学车教练端";
 			sourceTree = "<group>";
 		};
 		B5DBF894000A97257FA171A80FDD240D /* FMDB */ = {
@@ -198,15 +207,6 @@
 				7A41F655AE60DEBF433CBA253DF16C55 /* JPush */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		C236ABF7BACE3DEC971C1F2A437CB22B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5F4B021A956AFD62B718BA1EE0542462 /* libFMDB.a */,
-				BC3403CB6A1AE7928FEDDAADE28BB316 /* libPods-好梦学车教练端.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -247,21 +247,21 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0CE2F96F9A6A5D7E02FE305A12C6968E /* Pods-好梦学车教练端 */ = {
+		29C63B92F223EC30E5878F951AE6AFE0 /* Pods-好梦教练 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9181AC8054D379AFD2B1D62B4B69F10 /* Build configuration list for PBXNativeTarget "Pods-好梦学车教练端" */;
+			buildConfigurationList = 6C5FF136FD80D7BF38C7F3E920032ACB /* Build configuration list for PBXNativeTarget "Pods-好梦教练" */;
 			buildPhases = (
-				490EFCFD735A8FD209576BCBB606F289 /* Sources */,
-				2A4D798563688E0FC3ECD59652566174 /* Frameworks */,
+				603970913DDA88C24824FAC2B83DD671 /* Sources */,
+				4CF5CFA6EEB15943F98C77FB71A72B75 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A7C605EF6DB597ED9C0EC4A73BFAA9ED /* PBXTargetDependency */,
+				0A0C467DCF8B0A6046AD0EF7BBDEE496 /* PBXTargetDependency */,
 			);
-			name = "Pods-好梦学车教练端";
-			productName = "Pods-好梦学车教练端";
-			productReference = BC3403CB6A1AE7928FEDDAADE28BB316 /* libPods-好梦学车教练端.a */;
+			name = "Pods-好梦教练";
+			productName = "Pods-好梦教练";
+			productReference = 3DCFC10644C4E69EEB49EAD3CF2C1140 /* libPods-好梦教练.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		8642CC820CE8C5B88C113D7F47AF4BC3 /* FMDB */ = {
@@ -278,7 +278,7 @@
 			);
 			name = FMDB;
 			productName = FMDB;
-			productReference = 5F4B021A956AFD62B718BA1EE0542462 /* libFMDB.a */;
+			productReference = 659443BFF8CAB4D607D9807EE2ADBADB /* libFMDB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -298,22 +298,22 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = C236ABF7BACE3DEC971C1F2A437CB22B /* Products */;
+			productRefGroup = 05550A79ED963D71E0A3202B1E593BF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8642CC820CE8C5B88C113D7F47AF4BC3 /* FMDB */,
-				0CE2F96F9A6A5D7E02FE305A12C6968E /* Pods-好梦学车教练端 */,
+				29C63B92F223EC30E5878F951AE6AFE0 /* Pods-好梦教练 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		490EFCFD735A8FD209576BCBB606F289 /* Sources */ = {
+		603970913DDA88C24824FAC2B83DD671 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCCAC53B817A0CF6AE1E23ED674BF8A9 /* Pods-好梦学车教练端-dummy.m in Sources */,
+				15E978F311DD1DFF8B907FF9775CA41F /* Pods-好梦教练-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,11 +333,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A7C605EF6DB597ED9C0EC4A73BFAA9ED /* PBXTargetDependency */ = {
+		0A0C467DCF8B0A6046AD0EF7BBDEE496 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FMDB;
 			target = 8642CC820CE8C5B88C113D7F47AF4BC3 /* FMDB */;
-			targetProxy = 482331210D5E568E20D023A6F61F21EC /* PBXContainerItemProxy */;
+			targetProxy = 719BA48E44861E01C683DDBA0419DF4A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -364,6 +364,29 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		27B1F98B59F69D2D0201343F7A215CCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90A1A483421DBCE9820BC8BC7DAAF6AD /* Pods-好梦教练.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -432,32 +455,9 @@
 			};
 			name = Debug;
 		};
-		6FFC15D9846F19D9718DF63EDEDA7AA4 /* Debug */ = {
+		AB5BDE5E4E83F9F4E53CCA8A6FEA97AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91029838577D4FCE18CD3BA9405E0C7B /* Pods-好梦学车教练端.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		74FF53B59755F53DE4D3A1F993C62B2F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EADC701C673C537588A4B9C246177D7 /* Pods-好梦学车教练端.release.xcconfig */;
+			baseConfigurationReference = B7DD85C603454C86D47FA25ACB4FF735 /* Pods-好梦教练.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -547,11 +547,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9181AC8054D379AFD2B1D62B4B69F10 /* Build configuration list for PBXNativeTarget "Pods-好梦学车教练端" */ = {
+		6C5FF136FD80D7BF38C7F3E920032ACB /* Build configuration list for PBXNativeTarget "Pods-好梦教练" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6FFC15D9846F19D9718DF63EDEDA7AA4 /* Debug */,
-				74FF53B59755F53DE4D3A1F993C62B2F /* Release */,
+				27B1F98B59F69D2D0201343F7A215CCE /* Debug */,
+				AB5BDE5E4E83F9F4E53CCA8A6FEA97AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
