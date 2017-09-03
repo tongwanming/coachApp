@@ -7,10 +7,13 @@
 //
 
 #import "BasicViewController.h"
+#import "StudentNewsModel.h"
 
 @protocol examingRecordViewControllerDelegate <NSObject>
 
 - (void)examingRecordViewControllerClickWithBtn:(UIButton *)btn;
+
+- (void)addExamStudentWithModel:(StudentNewsModel *)model;
 
 @end
 

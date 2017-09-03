@@ -8,7 +8,7 @@
 
 #import "SinginViewController.h"
 #import "ForgetPasswoordViewController.h"
-#import "IdentifyingViewController.h"
+#import "SinginViewController.h"
 #import "ResetPasswordViewController.h"
 #import "LoginSucceedViewController.h"
 #import "Masonry.h"
@@ -104,7 +104,7 @@
         
     }else if (btn.tag == 1002){
         //验证码登录
-        IdentifyingViewController *IV = [[IdentifyingViewController alloc] init];
+        SinginViewController *IV = [[SinginViewController alloc] init];
         [self.navigationController pushViewController:IV animated:YES];
         
         //短信登录
@@ -139,7 +139,7 @@
         
         
         //    NSURL *url = [NSURL URLWithString:urlstr];
-        NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/gateway-service/auth/login"];
+        NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7072/gateway-service/auth/login"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
         [request setHTTPBody:jsonData];
         [request setHTTPMethod:@"POST"];
@@ -174,6 +174,7 @@
                     [userDic setValue:[self choosedObjectWithKey:@"district" andDic:userInfoDic] forKey:@"address"];
                     [userDic setValue:[self choosedObjectWithKey:@"userId" andDic:userInfoDic] forKey:@"userId"];
                     
+                    [userDic setValue:[self choosedObjectWithKey:@"id" andDic:userInfoDic] forKey:@"coachId"];
                     
                     
                     [[NSUserDefaults standardUserDefaults] setObject:userDic forKey:@"personNews"];

@@ -9,16 +9,23 @@
 #import "RecordViewController.h"
 #import "RecordTableViewCell.h"
 #import "MindViewController.h"
-#import "IdentifyingViewController.h"
+#import "SinginViewController.h"
 #import "PersonCenterViewController.h"
+#import "StudentNewsModel.h"
+#import "CustomAlertView.h"
+#import "NSDictionary+objectForKeyWitnNoNsnull.h"
 
 @interface RecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) NSArray *dateArr;
+
 @end
 
 @implementation RecordViewController{
-    NSMutableArray *_data;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -30,6 +37,150 @@
     [super viewWillAppear:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNewVC:) name:@"showChoosedStduents" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Appear"];
+    [self getData];
+}
+
+- (void)getData{
+    NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
+    __block NSString *cocchId = [userDic objectForKey:@"coachId"];
+    NSDictionary *dic =@{@"subject":[NSNull null],@"coachId":cocchId,@"type":@""};
+    
+    
+    NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
+    
+    
+    NSMutableString *mutStr = [NSMutableString stringWithString:jsonStr];
+    
+    NSRange range = {0,jsonStr.length};
+    
+    [mutStr replaceOccurrencesOfString:@" "withString:@""options:NSLiteralSearch range:range];
+    
+    NSRange range2 = {0,mutStr.length};
+    
+    [mutStr replaceOccurrencesOfString:@"\n"withString:@""options:NSLiteralSearch range:range2];
+    NSRange range3 = {0,mutStr.length};
+    [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
+    NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/student/query/study
+    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/student/query/study"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+    [request setHTTPBody:jsonData];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [CustomAlertView showAlertViewWithVC:self];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CustomAlertView hideAlertView];
+            });
+            if (success.boolValue) {
+                NSDictionary *dic = [jsonDict objectForKey:@"data"];
+                
+                NSArray *arr1 = [dic objectForKey:@"today"];
+                NSArray *arr2 = [dic objectForKey:@"yesterday"];
+                NSArray *arr3 = [dic objectForKey:@"moreBefore"];
+                if (_data.count > 0) {
+                    [_data removeAllObjects];
+                }
+                NSMutableArray *mutArr1 = [[NSMutableArray alloc] init];
+                NSMutableArray *mutArr2 = [[NSMutableArray alloc] init];
+                NSMutableArray *mutArr3 = [[NSMutableArray alloc] init];
+                for (NSDictionary *dic in arr1) {
+                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                    
+                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                    
+                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                    model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                    model.coachId = cocchId;
+                    [mutArr1 addObject:model];
+                }
+                
+                
+                for (NSDictionary *dic in arr2) {
+                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                    
+                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                    
+                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                    model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                    model.coachId = cocchId;
+                    [mutArr2 addObject:model];
+                }
+                
+                for (NSDictionary *dic in arr3) {
+                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                    
+                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                    
+                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                    model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                    model.coachId = cocchId;
+                    [mutArr3 addObject:model];
+                }
+                
+                [_data addObject:mutArr1];
+                [_data addObject:mutArr2];
+                [_data addObject:mutArr3];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableView reloadData];
+                });
+                
+            }else{
+                //登录失败
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //验证码输入错误
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入的账号或者密码错误，请查正后登录" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    [v addAction:active];
+                    [self presentViewController:v animated:YES completion:^{
+                        
+                    }];
+                });
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CustomAlertView hideAlertView];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"未知错误，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [v addAction:active];
+                [self presentViewController:v animated:YES completion:^{
+                    
+                }];
+            });
+        }
+    }];
+    [dataTask resume];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -62,12 +213,12 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    for (int i = 0; i < 10; i++) {
-        [_data addObject:[NSString stringWithFormat:@"%d",i]];
-    }
+    
+    _dateArr = @[@"今天",@"昨天",@"更早"];
+   
     NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
     if (!isLogin) {
-        IdentifyingViewController *v = [[IdentifyingViewController alloc] init];
+        SinginViewController *v = [[SinginViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
         [self presentViewController:nav animated:YES completion:nil];
     }else{
@@ -90,10 +241,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return _data.count;
+    if (_data.count >0) {
+        return ((NSArray *)_data[section]).count;
     }else
-        return 3;
+        return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -108,6 +259,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"RecordTableViewCell" owner:nil options:nil] lastObject];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    StudentNewsModel *model = (StudentNewsModel *)_data[indexPath.section][indexPath.row];
+    cell.model = model;
     return cell;
 }
 
@@ -116,7 +269,7 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, CURRENT_BOUNDS.width,45 )];
     label.font = [UIFont systemFontOfSize:16];
-    label.text = @"今天";
+    label.text = _dateArr[section];
     label.textColor = RECORDWORK;
 //    label.backgroundColor = [UIColor redColor];
     [veiw addSubview:label];
@@ -133,9 +286,90 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    StudentNewsModel *model = (StudentNewsModel *)_data[indexPath.section][indexPath.row];
     
-    [_data removeObjectAtIndex:indexPath.row];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+//    [_data removeObjectAtIndex:indexPath.row];
+//    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self delectActiveWithModel:model];
+}
+
+- (void)delectActiveWithModel:(StudentNewsModel *)model{
+    NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
+    __block NSString *cocchId = [userDic objectForKey:@"coachId"];
+    NSDictionary *dic =@{@"recordId":model.recordId};
+    
+    
+    NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
+    
+    
+    NSMutableString *mutStr = [NSMutableString stringWithString:jsonStr];
+    
+    NSRange range = {0,jsonStr.length};
+    
+    [mutStr replaceOccurrencesOfString:@" "withString:@""options:NSLiteralSearch range:range];
+    
+    NSRange range2 = {0,mutStr.length};
+    
+    [mutStr replaceOccurrencesOfString:@"\n"withString:@""options:NSLiteralSearch range:range2];
+    NSRange range3 = {0,mutStr.length};
+    [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
+    NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/student/query/study
+    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/student/del/study"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+    [request setHTTPBody:jsonData];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [CustomAlertView showAlertViewWithVC:self];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CustomAlertView hideAlertView];
+            });
+            if (success.boolValue) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self getData];
+                });
+            }else{
+                //登录失败
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //验证码输入错误
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"删除失败" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    [v addAction:active];
+                    [self presentViewController:v animated:YES completion:^{
+                        
+                    }];
+                });
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CustomAlertView hideAlertView];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"删除失败" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [v addAction:active];
+                [self presentViewController:v animated:YES completion:^{
+                    
+                }];
+            });
+        }
+    }];
+    [dataTask resume];
 }
 
 - (void)didReceiveMemoryWarning {

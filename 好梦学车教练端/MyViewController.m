@@ -9,7 +9,7 @@
 #import "MyViewController.h"
 #import "MindViewController.h"
 #import "MindViewController.h"
-#import "IdentifyingViewController.h"
+#import "SinginViewController.h"
 #import "FinishPersonNewsViewController.h"
 #import "SettingViewController.h"
 #import "PersonCenterViewController.h"
@@ -88,7 +88,7 @@
     
     NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
     if (!isLogin) {
-        IdentifyingViewController *v = [[IdentifyingViewController alloc] init];
+        SinginViewController *v = [[SinginViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
         [self presentViewController:nav animated:YES completion:nil];
     }else{

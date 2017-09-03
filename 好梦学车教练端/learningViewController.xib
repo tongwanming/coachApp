@@ -81,7 +81,7 @@
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_addrecord_go.png" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-ly-28p">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_addrecord_go.png" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-ly-28p">
                                     <rect key="frame" x="201" y="14" width="8" height="14"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="BXE-DU-8uI"/>

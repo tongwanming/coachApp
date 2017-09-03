@@ -10,6 +10,7 @@
 		2942F1F81F3D48DA005B6A09 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2942F1F71F3D48DA005B6A09 /* star@2x.png */; };
 		2942F1FC1F3D56EC005B6A09 /* StudentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942F1FA1F3D56EC005B6A09 /* StudentsTableViewCell.m */; };
 		2942F1FD1F3D56EC005B6A09 /* StudentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2942F1FB1F3D56EC005B6A09 /* StudentsTableViewCell.xib */; };
+		294690031F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.m in Sources */ = {isa = PBXBuildFile; fileRef = 294690021F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.m */; };
 		294A0AB71F43F3540005A986 /* bg_my_photobg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 294A0AB51F43F3540005A986 /* bg_my_photobg@2x.png */; };
 		294A0AB81F43F3540005A986 /* bg_my_photobg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 294A0AB61F43F3540005A986 /* bg_my_photobg@3x.png */; };
 		294A0ACA1F43F6480005A986 /* bg_addrecord_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 294A0ABA1F43F6480005A986 /* bg_addrecord_avatar@2x.png */; };
@@ -228,6 +229,8 @@
 		298ED54D1F419E57003AA4BF /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 298ED54B1F419E57003AA4BF /* EvaluateTableViewCell.m */; };
 		298ED54E1F419E57003AA4BF /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 298ED54C1F419E57003AA4BF /* EvaluateTableViewCell.xib */; };
 		298ED5511F419EE5003AA4BF /* EvaluateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 298ED5501F419EE5003AA4BF /* EvaluateModel.m */; };
+		29952CE41F568C6500E89352 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 29952CE31F568C6500E89352 /* star.png */; };
+		29952CE61F568F3A00E89352 /* star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29952CE51F568F3A00E89352 /* star@3x.png */; };
 		BF0640FB5A39FCB385DEA283 /* libPods-好梦教练.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D61631DBB03C95DD196E1ACE /* libPods-好梦教练.a */; };
 /* End PBXBuildFile section */
 
@@ -254,6 +257,8 @@
 		2942F1F91F3D56EC005B6A09 /* StudentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsTableViewCell.h; sourceTree = "<group>"; };
 		2942F1FA1F3D56EC005B6A09 /* StudentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsTableViewCell.m; sourceTree = "<group>"; };
 		2942F1FB1F3D56EC005B6A09 /* StudentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentsTableViewCell.xib; sourceTree = "<group>"; };
+		294690011F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+objectForKeyWitnNoNsnull.h"; sourceTree = "<group>"; };
+		294690021F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+objectForKeyWitnNoNsnull.m"; sourceTree = "<group>"; };
 		294A0AB51F43F3540005A986 /* bg_my_photobg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_my_photobg@2x.png"; sourceTree = "<group>"; };
 		294A0AB61F43F3540005A986 /* bg_my_photobg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_my_photobg@3x.png"; sourceTree = "<group>"; };
 		294A0ABA1F43F6480005A986 /* bg_addrecord_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_addrecord_avatar@2x.png"; sourceTree = "<group>"; };
@@ -284,10 +289,10 @@
 		29586AE51F3C0F23000ACB81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29586AE71F3C0F23000ACB81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29586AEC1F3C0F23000ACB81 /* 好梦教练Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "好梦教练Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		29586AF01F3C0F23000ACB81 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ____Tests.m; sourceTree = "<group>"; };
+		29586AF01F3C0F23000ACB81 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
 		29586AF21F3C0F23000ACB81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29586AF71F3C0F23000ACB81 /* 好梦教练UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "好梦教练UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		29586AFB1F3C0F23000ACB81 /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ____UITests.m; sourceTree = "<group>"; };
+		29586AFB1F3C0F23000ACB81 /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		29586AFD1F3C0F23000ACB81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29586B091F3C30B4000ACB81 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		29586B0A1F3C30B4000ACB81 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -553,6 +558,8 @@
 		298ED54C1F419E57003AA4BF /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
 		298ED54F1F419EE5003AA4BF /* EvaluateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateModel.h; sourceTree = "<group>"; };
 		298ED5501F419EE5003AA4BF /* EvaluateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateModel.m; sourceTree = "<group>"; };
+		29952CE31F568C6500E89352 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		29952CE51F568F3A00E89352 /* star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@3x.png"; sourceTree = "<group>"; };
 		5B9A01061D1276A8DE3E2B32 /* Pods-好梦教练.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-好梦教练.release.xcconfig"; path = "Pods/Target Support Files/Pods-好梦教练/Pods-好梦教练.release.xcconfig"; sourceTree = "<group>"; };
 		D61631DBB03C95DD196E1ACE /* libPods-好梦教练.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-好梦教练.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -660,6 +667,8 @@
 				29586B4D1F3C3411000ACB81 /* icons */,
 				29586AD91F3C0F23000ACB81 /* AppDelegate.h */,
 				29586ADA1F3C0F23000ACB81 /* AppDelegate.m */,
+				294690011F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.h */,
+				294690021F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.m */,
 				295D1A161F4FCC7600DC73DB /* CustonNavViewController.h */,
 				295D1A171F4FCC7600DC73DB /* CustonNavViewController.m */,
 				295D1A181F4FCC7600DC73DB /* CustonNavViewController.xib */,
@@ -683,7 +692,9 @@
 				29586B0E1F3C310D000ACB81 /* LaunchIntroductionView.h */,
 				29586B0F1F3C310D000ACB81 /* LaunchIntroductionView.m */,
 				29586B8F1F3C656D000ACB81 /* seaKing.png */,
+				29952CE51F568F3A00E89352 /* star@3x.png */,
 				2942F1F71F3D48DA005B6A09 /* star@2x.png */,
+				29952CE31F568C6500E89352 /* star.png */,
 				2960029D1F458F9500507A00 /* CameraVC */,
 				29586AE21F3C0F23000ACB81 /* Assets.xcassets */,
 				29586AE41F3C0F23000ACB81 /* LaunchScreen.storyboard */,
@@ -1244,6 +1255,7 @@
 				296CD1611F42E4610094722E /* btn_my_go@2x.png in Resources */,
 				296CD1671F42E4610094722E /* icon_my_position@2x.png in Resources */,
 				295AE4B51F4C303900B0991C /* icon_messcenter_register@3x.png in Resources */,
+				29952CE41F568C6500E89352 /* star.png in Resources */,
 				295AE4B41F4C303900B0991C /* icon_messcenter_register@2x.png in Resources */,
 				29586B3A1F3C33F4000ACB81 /* tab_btn_add_normal@3x.png in Resources */,
 				29586B341F3C33F4000ACB81 /* btn_recording_edit_normal@3x.png in Resources */,
@@ -1366,6 +1378,7 @@
 				298ED5251F4173F9003AA4BF /* learningViewController.xib in Resources */,
 				298ED5441F41968C003AA4BF /* star_little_normal@2x.png in Resources */,
 				296CD1891F42F7C30094722E /* icon_studentdetails_call@2x.png in Resources */,
+				29952CE61F568F3A00E89352 /* star@3x.png in Resources */,
 				294A0AD91F43F6480005A986 /* nav_addrecord_btn_close@3x.png in Resources */,
 				295AE4B61F4C303900B0991C /* icon_messcenter_system@2x.png in Resources */,
 				294A0AB71F43F3540005A986 /* bg_my_photobg@2x.png in Resources */,
@@ -1507,6 +1520,7 @@
 				295D7A3A1F514D3C003A2262 /* StudentNewsModel.m in Sources */,
 				29586B101F3C310D000ACB81 /* LaunchIntroductionView.m in Sources */,
 				295D1A191F4FCC7600DC73DB /* CustonNavViewController.m in Sources */,
+				294690031F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.m in Sources */,
 				296002921F456C2500507A00 /* ViewController+MASAdditions.m in Sources */,
 				296002961F45754000507A00 /* FinishPersonNewsViewController.m in Sources */,
 				298ED5281F4195EF003AA4BF /* StartGradeView.m in Sources */,

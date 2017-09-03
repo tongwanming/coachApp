@@ -7,6 +7,7 @@
 //
 
 #import "LearningCollectionViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation LearningCollectionViewCell{
     
@@ -62,6 +63,17 @@
     }else{
         _layer.hidden = YES;
     }
+}
+
+- (void)setModel:(StudentNewsModel *)model{
+    _model = model;
+    if (model.logoUrl) {
+        [_imageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+    }else{
+        _imageView.image = [UIImage imageNamed:@"seaKing"];
+    }
+    _titleLabel.text = model.name;
+    
 }
 
 

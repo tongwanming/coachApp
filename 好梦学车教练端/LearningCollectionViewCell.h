@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StudentNewsModel.h"
 
 @interface LearningCollectionViewCell : UICollectionViewCell
 
@@ -17,5 +18,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @property (nonatomic, assign) NSIndexPath *idexPath;
+
+@property (nonatomic, strong) StudentNewsModel *model;
 
 @end

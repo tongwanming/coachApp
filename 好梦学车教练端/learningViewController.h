@@ -13,6 +13,8 @@
 
 - (void)learningViewControllerBtnClickWihtBtn:(UIButton *)btn;
 
+- (void)addLearnStudentWithModel:(StudentNewsModel *)model;
+
 @end
 
 @interface learningViewController : BasicViewController
@@ -23,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UIView *subView;
-
+@property (nonatomic, strong) NSString *finishStr;
 
 @property (nonatomic, weak) id<learningViewControllerDelegate>delegate;
 

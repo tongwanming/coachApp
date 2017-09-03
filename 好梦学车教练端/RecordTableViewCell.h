@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StudentNewsModel.h"
 
 @interface RecordTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -14,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *desLabelOne;
 @property (weak, nonatomic) IBOutlet UILabel *desLabelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *recordMarkLabel;
+
+@property (nonatomic, strong) StudentNewsModel *model;
 
 @end

@@ -108,17 +108,17 @@
             [self.navigationController pushViewController:v animated:YES];
         }
         if (indexPath.row == 0) {
-//            [CustomAlertView showAlertViewWithVC:self];
-//            [[SDImageCache sharedImageCache] clearDisk];
-//            [[NSFileManager defaultManager] removeItemAtPath:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject] error:nil];
-//            [CustomAlertView hideAlertView];
-//            _cache = [self getCacheSize];
-//            [_tableView reloadData];
+            [CustomAlertView showAlertViewWithVC:self];
+            [[SDImageCache sharedImageCache] clearDisk];
+            [[NSFileManager defaultManager] removeItemAtPath:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject] error:nil];
+            [CustomAlertView hideAlertView];
+            _cache = [self getCacheSize];
+            [_tableView reloadData];
         }
     }else if (indexPath.section == 1){
         SubjectTwoPopWebViewController *v = [[SubjectTwoPopWebViewController alloc] init];
         v.url = @"https://cq.haomeng.com/wx/about-us";
-        v.titleLabel.text = @"关于好梦";
+        v.titleStr = @"关于好梦";
         [self.navigationController pushViewController:v animated:YES];
     }
 }
