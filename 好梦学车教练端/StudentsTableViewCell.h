@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StudentNewsModel.h"
 
 @interface StudentsTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *desLabel;
+
+@property (nonatomic, strong) StudentNewsModel *model;
 
 @end

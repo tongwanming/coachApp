@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UIView *subView;
+@property (weak, nonatomic) IBOutlet UIButton *passBtn;
+@property (weak, nonatomic) IBOutlet UIButton *noPassBtn;
+@property (nonatomic, strong) NSString *finishStr;
 
 @property (nonatomic, weak) id<examingRecordViewControllerDelegate>delegate;
 

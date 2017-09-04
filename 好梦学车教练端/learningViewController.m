@@ -142,8 +142,6 @@ typedef void(^StudentBlock)(StudentNewsModel *);
             });
             if (success.boolValue) {
                 NSArray *arr = [jsonDict objectForKey:@"data"];
-//                NSString *token = [dic objectForKey:@"token"];
-//                NSDictionary *userInfoDic = [dic objectForKey:@"info"];
                 if (_data.count > 0) {
                     [_data removeAllObjects];
                 }
@@ -165,15 +163,20 @@ typedef void(^StudentBlock)(StudentNewsModel *);
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_collectionView reloadData];
-                    StudentNewsModel *model = _data[0];
-                    if (model.logoUrl) {
-                        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+                    if (_data && _data.count > 0) {
+                        StudentNewsModel *model = _data[0];
+                        if (model.logoUrl) {
+                            [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+                        }else{
+                            _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+                        }
+                        
+                        _nameLabel.text = model.name;
+                        _typeLabel.text = model.subject;
                     }else{
-                        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+                    
                     }
                     
-                    _nameLabel.text = model.name;
-                    _typeLabel.text = model.subject;
                 });
                 
             }else{
@@ -224,7 +227,6 @@ typedef void(^StudentBlock)(StudentNewsModel *);
     }
     
     StudentNewsModel *model = _data[indexPath.row];
-//    cell.backgroundColor = [UIColor redColor];
     cell.model = model;
     return cell;
 }
@@ -243,6 +245,7 @@ typedef void(^StudentBlock)(StudentNewsModel *);
     
     _nameLabel.text = model.name;
     _typeLabel.text = model.subject;
+    
     if ([self.delegate respondsToSelector:@selector(addLearnStudentWithModel:)]) {
         [self.delegate performSelector:@selector(addLearnStudentWithModel:) withObject:model];
     }

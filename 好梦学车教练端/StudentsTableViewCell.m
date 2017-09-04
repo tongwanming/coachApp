@@ -7,6 +7,7 @@
 //
 
 #import "StudentsTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation StudentsTableViewCell
 
@@ -17,6 +18,17 @@
     
     // Initialization code
 }
+
+- (void)setModel:(StudentNewsModel *)model{
+    _model = model;
+    if (model.logoUrl) {
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+    }else{
+        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+    }
+    _nameLabel.text = model.name;
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

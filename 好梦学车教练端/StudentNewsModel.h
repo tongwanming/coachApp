@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) NSString *recordId;//删除的时候用的id
 
+@property (nonatomic, assign) int passState;//考试所在状态
+
 @property (nonatomic, strong) NSString *test1;
 
 @property (nonatomic, strong) NSString *test2;

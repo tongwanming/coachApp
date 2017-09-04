@@ -38,6 +38,7 @@
     if (btn.tag == 1001) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }else if (btn.tag == 1002){
+        //签到
         _typeStr = @"v";
         _recordLearn.titleLabel.textColor = BLUE_BACKGROUND_COLOR;
         _learnView.backgroundColor = BLUE_BACKGROUND_COLOR;
@@ -49,7 +50,9 @@
         }
         v.view.frame = CGRectMake(0, 0, CURRENT_BOUNDS.width, self.mindSubView.frame.size.height);
         [self.mindSubView addSubview:v.view];
+         [_resaveBtn setTitle:@"保存并请求签到" forState:UIControlStateNormal];
     }else if (btn.tag == 1003){
+        //考试完成
         _typeStr = @"ev";
         _recordLearn.titleLabel.textColor = RECORDWORK;
         _learnView.backgroundColor = RECORDWORK;
@@ -61,6 +64,7 @@
         }
         v.view.frame = CGRectMake(0, 0, CURRENT_BOUNDS.width, self.mindSubView.frame.size.height);
         [self.mindSubView addSubview:v.view];
+        [_resaveBtn setTitle:@"考试通过并保存" forState:UIControlStateNormal];
     }else if (btn.tag == 1004){
         if ([_studentModel.learnType isEqualToString:@"learn"]) {
             //练车打卡
@@ -108,14 +112,61 @@
                     }
                 }else{
                    
+
                 }
             }];
             [dataTask resume];
-
             
         }else{
             //考试通过打开
-        
+            [CustomAlertView showAlertViewWithVC:_ev];
+            NSDictionary *dic =@{@"id":_studentModel.recordId,@"result":@(_studentModel.passState)};
+            
+            
+            NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
+            
+            
+            NSMutableString *mutStr = [NSMutableString stringWithString:jsonStr];
+            
+            NSRange range = {0,jsonStr.length};
+            
+            [mutStr replaceOccurrencesOfString:@" "withString:@""options:NSLiteralSearch range:range];
+            
+            NSRange range2 = {0,mutStr.length};
+            
+            [mutStr replaceOccurrencesOfString:@"\n"withString:@""options:NSLiteralSearch range:range2];
+            NSRange range3 = {0,mutStr.length};
+            [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
+            NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
+            
+            NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/student/exam"];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+            [request setHTTPBody:jsonData];
+            [request setHTTPMethod:@"POST"];
+            [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+            
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                if (error == nil) {
+                    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                    NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+                    
+                    if (success.boolValue) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [CustomAlertView hideAlertView];
+                            _v.finishStr = @"success";
+                        });
+                        
+                    }else{
+                        
+                    }
+                }else{
+                    
+                    
+                }
+            }];
+            [dataTask resume];
         }
         
         
@@ -186,6 +237,11 @@
     }else{
         
     }
+}
+
+- (void)addExamStudentWithModel:(StudentNewsModel *)model{
+    _studentModel = model;
+    _studentModel.learnType = @"exame";
 }
 
 - (void)viewDidLoad {

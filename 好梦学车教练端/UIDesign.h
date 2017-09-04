@@ -60,6 +60,8 @@
 #define DDDDDD RGBAN(221,221,221,100)
 //F39D10
 #define F39D10 RGBAN(243,157,16,100)
+//EFF2F6
+#define EFF2F6 RGBAN(239,242,246,100)
 
 #define CURRENT_BOUNDS [UIScreen mainScreen].bounds.size
 
