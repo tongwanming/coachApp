@@ -199,7 +199,7 @@
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入的账号或者密码错误，请查正后登录" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"数据获取失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         
                     }];
@@ -213,7 +213,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
-                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"未知错误，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"数据获取失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];

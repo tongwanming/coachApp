@@ -231,6 +231,11 @@
 		298ED5511F419EE5003AA4BF /* EvaluateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 298ED5501F419EE5003AA4BF /* EvaluateModel.m */; };
 		29952CE41F568C6500E89352 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 29952CE31F568C6500E89352 /* star.png */; };
 		29952CE61F568F3A00E89352 /* star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29952CE51F568F3A00E89352 /* star@3x.png */; };
+		29A492121F5D2EAE00CE0126 /* PersonNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A4920D1F5D2EAE00CE0126 /* PersonNewsViewController.m */; };
+		29A492131F5D2EAE00CE0126 /* PersonNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A4920E1F5D2EAE00CE0126 /* PersonNewsViewController.xib */; };
+		29A492141F5D2EAE00CE0126 /* eventNotictionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A492101F5D2EAE00CE0126 /* eventNotictionViewController.m */; };
+		29A492151F5D2EAF00CE0126 /* eventNotictionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A492111F5D2EAE00CE0126 /* eventNotictionViewController.xib */; };
+		29A492181F5D2F2400CE0126 /* SettingPersonNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A492171F5D2F2400CE0126 /* SettingPersonNewsModel.m */; };
 		BF0640FB5A39FCB385DEA283 /* libPods-好梦教练.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D61631DBB03C95DD196E1ACE /* libPods-好梦教练.a */; };
 /* End PBXBuildFile section */
 
@@ -560,6 +565,14 @@
 		298ED5501F419EE5003AA4BF /* EvaluateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateModel.m; sourceTree = "<group>"; };
 		29952CE31F568C6500E89352 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		29952CE51F568F3A00E89352 /* star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@3x.png"; sourceTree = "<group>"; };
+		29A4920C1F5D2EAE00CE0126 /* PersonNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonNewsViewController.h; sourceTree = "<group>"; };
+		29A4920D1F5D2EAE00CE0126 /* PersonNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonNewsViewController.m; sourceTree = "<group>"; };
+		29A4920E1F5D2EAE00CE0126 /* PersonNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonNewsViewController.xib; sourceTree = "<group>"; };
+		29A4920F1F5D2EAE00CE0126 /* eventNotictionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventNotictionViewController.h; sourceTree = "<group>"; };
+		29A492101F5D2EAE00CE0126 /* eventNotictionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventNotictionViewController.m; sourceTree = "<group>"; };
+		29A492111F5D2EAE00CE0126 /* eventNotictionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventNotictionViewController.xib; sourceTree = "<group>"; };
+		29A492161F5D2F2400CE0126 /* SettingPersonNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingPersonNewsModel.h; sourceTree = "<group>"; };
+		29A492171F5D2F2400CE0126 /* SettingPersonNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingPersonNewsModel.m; sourceTree = "<group>"; };
 		5B9A01061D1276A8DE3E2B32 /* Pods-好梦教练.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-好梦教练.release.xcconfig"; path = "Pods/Target Support Files/Pods-好梦教练/Pods-好梦教练.release.xcconfig"; sourceTree = "<group>"; };
 		D61631DBB03C95DD196E1ACE /* libPods-好梦教练.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-好梦教练.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -890,6 +903,14 @@
 				296002C41F45992600507A00 /* SubjectTwoPopWebViewController.h */,
 				296002C51F45992600507A00 /* SubjectTwoPopWebViewController.m */,
 				296002C61F45992600507A00 /* SubjectTwoPopWebViewController.xib */,
+				29A4920C1F5D2EAE00CE0126 /* PersonNewsViewController.h */,
+				29A4920D1F5D2EAE00CE0126 /* PersonNewsViewController.m */,
+				29A4920E1F5D2EAE00CE0126 /* PersonNewsViewController.xib */,
+				29A4920F1F5D2EAE00CE0126 /* eventNotictionViewController.h */,
+				29A492101F5D2EAE00CE0126 /* eventNotictionViewController.m */,
+				29A492111F5D2EAE00CE0126 /* eventNotictionViewController.xib */,
+				29A492161F5D2F2400CE0126 /* SettingPersonNewsModel.h */,
+				29A492171F5D2F2400CE0126 /* SettingPersonNewsModel.m */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -1204,6 +1225,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 6N395Q8V8T;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					29586AEB1F3C0F23000ACB81 = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -1353,6 +1379,7 @@
 				295D1A1A1F4FCC7600DC73DB /* CustonNavViewController.xib in Resources */,
 				29586B701F3C35B7000ACB81 /* RecordViewController.xib in Resources */,
 				294A0ACB1F43F6480005A986 /* bg_addrecord_avatar@3x.png in Resources */,
+				29A492151F5D2EAF00CE0126 /* eventNotictionViewController.xib in Resources */,
 				29586B661F3C358A000ACB81 /* MindViewController.xib in Resources */,
 				296002671F45490100507A00 /* btn_mainlogin_eyes_normal@3x.png in Resources */,
 				294A0AD51F43F6480005A986 /* icon_addrecord_go@3x.png in Resources */,
@@ -1372,6 +1399,7 @@
 				296CD1881F42F7C30094722E /* btn_studentdetails_go@3x.png in Resources */,
 				2960026A1F45490100507A00 /* nav_mainlogin_btn_close@2x.png in Resources */,
 				29586B901F3C656D000ACB81 /* seaKing.png in Resources */,
+				29A492131F5D2EAE00CE0126 /* PersonNewsViewController.xib in Resources */,
 				295AE4B01F4C303900B0991C /* icon_messcenter_activity@2x.png in Resources */,
 				29586B8E1F3C62E2000ACB81 /* RecordTableViewCell.xib in Resources */,
 				296CD1911F42F7C30094722E /* icon_studentdetails_position@2x.png in Resources */,
@@ -1483,6 +1511,7 @@
 				296002561F453E0C00507A00 /* LoginSucceedViewController.m in Sources */,
 				296002BD1F4598B100507A00 /* SettingViewController.m in Sources */,
 				29586B5B1F3C354D000ACB81 /* MyViewController.m in Sources */,
+				29A492181F5D2F2400CE0126 /* SettingPersonNewsModel.m in Sources */,
 				296002EC1F459CA100507A00 /* NSData+ImageContentType.m in Sources */,
 				298ED52B1F41962F003AA4BF /* ChoosedCocchModel.m in Sources */,
 				298ED5241F4173F9003AA4BF /* learningViewController.m in Sources */,
@@ -1490,6 +1519,7 @@
 				296002F41F459CA100507A00 /* UIButton+WebCache.m in Sources */,
 				29586ADB1F3C0F23000ACB81 /* AppDelegate.m in Sources */,
 				296CD1721F42EE420094722E /* StudentsDetailViewController.m in Sources */,
+				29A492141F5D2EAE00CE0126 /* eventNotictionViewController.m in Sources */,
 				29586B0C1F3C30B4000ACB81 /* MainViewController.m in Sources */,
 				29586B601F3C3574000ACB81 /* EvaluateViewController.m in Sources */,
 				296002F31F459CA100507A00 /* SDWebImagePrefetcher.m in Sources */,
@@ -1523,6 +1553,7 @@
 				294690031F5A624800031B72 /* NSDictionary+objectForKeyWitnNoNsnull.m in Sources */,
 				296002921F456C2500507A00 /* ViewController+MASAdditions.m in Sources */,
 				296002961F45754000507A00 /* FinishPersonNewsViewController.m in Sources */,
+				29A492121F5D2EAE00CE0126 /* PersonNewsViewController.m in Sources */,
 				298ED5281F4195EF003AA4BF /* StartGradeView.m in Sources */,
 				296002B21F458FC000507A00 /* WHC_Asset.m in Sources */,
 				296002481F453DB100507A00 /* SinginViewController.m in Sources */,
@@ -1689,7 +1720,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "tongwanming.-------";
+				PRODUCT_BUNDLE_IDENTIFIER = tongwanming.haomengjiaolian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1705,7 +1736,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "tongwanming.-------";
+				PRODUCT_BUNDLE_IDENTIFIER = tongwanming.haomengjiaolian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

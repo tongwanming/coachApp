@@ -16,6 +16,10 @@
 
 @property (nonatomic, strong) NSString *coachId;//教练id
 
+@property (nonatomic, strong) NSString *coachName;//教练的名字
+
+@property (nonatomic, strong) NSString *exercisePlace;//训练场地
+
 @property (nonatomic, strong) NSString *name;
 
 @property (nonatomic, strong) NSString *contacPhone;//联系电话

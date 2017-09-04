@@ -7,7 +7,7 @@
 //
 
 #import "EvaluateTableViewCell.h"
-//#import "UIImageView+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 @implementation EvaluateTableViewCell{
     NSMutableArray *_data;
@@ -67,9 +67,12 @@
 - (void)setModel:(EvaluateModel *)model{
     _model = model;
     
+    if (model.iconUrl && model.iconUrl.length > 0) {
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.iconUrl] placeholderImage:[UIImage imageNamed:@"pic03"]];
+    }else{
+        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+    }
     self.star = [_model.star floatValue];
-//    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.iconUrl] placeholderImage:[UIImage imageNamed:@"pic03"]];
-    _logoImageView.image = [UIImage imageNamed:@"seaKing"];
     _nameLabel.text = _model.userName;
     _timeLabel.text = _model.time;
     _describeLabel.text = _model.content;

@@ -26,6 +26,7 @@
         _logoImageView.image = [UIImage imageNamed:@"seaKing"];
     }
     _nameLabel.text = model.name;
+    _desLabelOne.text = model.subject;
     
 }
 

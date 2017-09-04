@@ -12,10 +12,39 @@
 #import "ChoosedCocchModel.h"
 #import "EvaluateTableViewCell.h"
 #import "EvaluateModel.h"
+#import "CustomAlertView.h"
+#import "StudentNewsModel.h"
+#import "NSDictionary+objectForKeyWitnNoNsnull.m"
+#import "UIImageView+WebCache.h"
 
+@interface coachModel : NSObject
+
+@property (nonatomic, strong) NSString *coachName;
+
+@property (nonatomic, strong) NSString *coachUrl;
+
+@property (nonatomic, strong) NSString *coachStars;
+
+@property (nonatomic, strong) NSString *coachPersons;
+
+@property (nonatomic, strong) NSString *coachPass;
+
+@property (nonatomic, strong) NSString *coachEvaluate;
+
+@end
+
+@implementation coachModel
+
+
+
+@end
 
 @interface EvaluateViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) coachModel *coachModel;
 
 @end
 
@@ -29,6 +58,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNewVC:) name:@"showChoosedStduents" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Appear"];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [self getData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -47,7 +77,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _dataArr = @[@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，",@"据说这是一个很好的教练，然后各种给力,",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力",@"据说这是一个很好的教练，然后各种给力,",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力",@"据说这是一个很好的教练，",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力",@"据说这是一个很好的教练，",@"据说这是一个很好的教练，然后各种给力,",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练",@"据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力,据说这是一个很好的教练，然后各种给力",@"据说这是一个很好的教练，",];
+    _coachModel = [[coachModel alloc]init];
+    
+    _data = [[NSMutableArray alloc] init];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -56,6 +88,113 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)getData{
+    NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
+    __block NSString *cocchId = [userDic objectForKey:@"coachId"];
+    NSDictionary *dic =@{@"coachId":cocchId};
+    
+    NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
+    
+    
+    NSMutableString *mutStr = [NSMutableString stringWithString:jsonStr];
+    
+    NSRange range = {0,jsonStr.length};
+    
+    [mutStr replaceOccurrencesOfString:@" "withString:@""options:NSLiteralSearch range:range];
+    
+    NSRange range2 = {0,mutStr.length};
+    
+    [mutStr replaceOccurrencesOfString:@"\n"withString:@""options:NSLiteralSearch range:range2];
+    NSRange range3 = {0,mutStr.length};
+    [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
+    NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/query/student
+    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/query/remark"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+    [request setHTTPBody:jsonData];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [CustomAlertView showAlertViewWithVC:self];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CustomAlertView hideAlertView];
+            });
+            if (success.boolValue) {
+                NSArray *arr = [jsonDict objectForKey:@"data"];
+                if (_data.count > 0) {
+                    [_data removeAllObjects];
+                }
+                if (arr.count >0) {
+                    for (NSDictionary *dic in arr) {
+                        
+                        NSDictionary *infoDic = [dic objectForKeyWithNoNsnull:@"studentIfo"];
+                        
+                        EvaluateModel *model = [[EvaluateModel alloc] init];
+                        
+                        model.content = [dic objectForKeyWithNoNsnull:@"remark"];
+                        model.time = [dic objectForKeyWithNoNsnull:@"addTime"];
+                        model.userName = [infoDic objectForKeyWithNoNsnull:@"name"];
+                        model.star = [NSString stringWithFormat:@"%@",[dic objectForKeyWithNoNsnull:@"stars"]];
+                        model.iconUrl = [dic objectForKeyWithNoNsnull:@""];//此处还没有数据
+                        
+                        NSDictionary *coachDic = [dic objectForKeyWithNoNsnull:@"coach"];
+                        _coachModel.coachName = [coachDic objectForKeyWithNoNsnull:@"realName"];
+                        _coachModel.coachUrl = [coachDic objectForKeyWithNoNsnull:@"headPicture"];
+                        _coachModel.coachStars = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"starValue"]];
+                        _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"totalTeachNum"]];
+                        _coachModel.coachPass = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"passRate"]];
+                        _coachModel.coachEvaluate = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"remarkName"]];
+                        
+                        [_data addObject:model];
+
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [_tableView reloadData];
+                    });
+                }
+                
+                
+            }else{
+                //登录失败
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //验证码输入错误
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    [v addAction:active];
+                    [self presentViewController:v animated:YES completion:^{
+                        
+                    }];
+                });
+            }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [CustomAlertView hideAlertView];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [v addAction:active];
+                [self presentViewController:v animated:YES completion:^{
+                    
+                }];
+            });
+        }
+    }];
+    [dataTask resume];
+}
 
 
 
@@ -64,7 +203,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _dataArr.count;
+    return _data.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -73,13 +212,13 @@
     
     UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     logoView.center = CGPointMake(CURRENT_BOUNDS.width/2, 65);
-    logoView.image = [UIImage imageNamed:@"seaKing"];
+    [logoView sd_setImageWithURL:[NSURL URLWithString:_coachModel.coachUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
     logoView.layer.masksToBounds = YES;
     logoView.layer.cornerRadius = 40;
     [headView addSubview:logoView];
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(logoView.frame)+20, CURRENT_BOUNDS.width, 20)];
-    title.text = @"王玉军";
+    title.text = _coachModel.coachName;
     title.font = [UIFont boldSystemFontOfSize:20];
     title.textAlignment = NSTextAlignmentCenter;
     title.textColor = BLACK_TEXT_COLOR;
@@ -87,11 +226,12 @@
     
     _startView = [[StartGradeView alloc] init];
     _startView.frame = CGRectMake(0, CGRectGetMaxY(title.frame)+15, [UIScreen mainScreen].bounds.size.width, 159);
+    
     ChoosedCocchModel *model = [[ChoosedCocchModel alloc] init];
-    model.starValue = @"4";
-    model.teachNum = @"30";
-    model.passPercent = @"97%";
-    model.commentNum = @"100";
+    model.starValue = _coachModel.coachStars;
+    model.teachNum = _coachModel.coachPersons;
+    model.passPercent = _coachModel.coachPass;
+    model.commentNum = _coachModel.coachEvaluate;
     
     _startView.model = model;
     _startView.backgroundColor = [UIColor whiteColor];
@@ -102,7 +242,7 @@
     [headView addSubview:lineView];
     
     UILabel *studentEvaluate = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(_startView.frame)+22, CURRENT_BOUNDS.width, 16)];
-    studentEvaluate.text = @"学员评价（100）";
+    studentEvaluate.text = [NSString stringWithFormat:@"学员评价(%@)",_coachModel.coachEvaluate];
     studentEvaluate.font = [UIFont boldSystemFontOfSize:16];
     studentEvaluate.textColor = TEXT_COLOR;
     [headView addSubview:studentEvaluate];
@@ -128,7 +268,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGFloat height = [self heightForString:_dataArr[indexPath.row] andFontOfSize:15 andWidth:CURRENT_BOUNDS.width-77];
+    CGFloat height = [self heightForString:((EvaluateModel *)_data[indexPath.row]).content andFontOfSize:15 andWidth:CURRENT_BOUNDS.width-77];
     return height+84;
 }
 
@@ -138,12 +278,8 @@
     if (!cell) {
         cell = [EvaluateTableViewCell cellWithTableToDequeueReusable:tableView identifier:indxe nibName:@"EvaluateTableViewCell"];
     }
-    EvaluateModel *model = [[EvaluateModel alloc] init];
-    model.star = @"4";
-    model.iconUrl = @"";
-    model.userName = @"我是路人甲";
-    model.time = @"2017.08.14";
-    model.content = _dataArr[indexPath.row];
+  
+    EvaluateModel *model = _data[indexPath.row];
     
     cell.model = model;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

@@ -8,6 +8,8 @@
 
 #import "BasicViewController.h"
 
+#import "StudentNewsModel.h"
+
 @interface StudentsDetailViewController : BasicViewController
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -17,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *callBtn;
 @property (weak, nonatomic) IBOutlet UIButton *messageBtn;
+
+@property (nonatomic, strong) StudentNewsModel *model;
 
 @end

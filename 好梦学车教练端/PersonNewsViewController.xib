@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonNewsViewController">
+            <connections>
+                <outlet property="tableView" destination="EVS-Fb-Jdt" id="Wr0-84-PLZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-kz-9bX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4t-fN-gPM">
+                            <rect key="frame" x="16" y="20" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="4XV-l5-okn"/>
+                                <constraint firstAttribute="height" constant="44" id="FLP-JO-jWi"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="nav_studentdetails_btn_back.png"/>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="BRm-kL-FYv"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeE-Bx-w44">
+                            <rect key="frame" x="315" y="20" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="JCX-gU-fVd"/>
+                                <constraint firstAttribute="height" constant="44" id="cgj-Iv-MKL"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="10"/>
+                            <state key="normal" image="btn_service.png"/>
+                            <connections>
+                                <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="j3U-te-WJu"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统消息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-aS-Nxy">
+                            <rect key="frame" x="112.5" y="20" width="150" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="4yX-h6-572"/>
+                                <constraint firstAttribute="width" constant="150" id="7g6-ea-azf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.27058823529999998" green="0.29803921570000003" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vhE-aS-Nxy" firstAttribute="centerX" secondItem="WKd-kz-9bX" secondAttribute="centerX" id="8g3-lL-eeO"/>
+                        <constraint firstAttribute="height" constant="64" id="Jdc-sE-hpG"/>
+                        <constraint firstAttribute="bottom" secondItem="vhE-aS-Nxy" secondAttribute="bottom" id="JrO-T2-zvY"/>
+                        <constraint firstAttribute="bottom" secondItem="h4t-fN-gPM" secondAttribute="bottom" id="aMc-NV-1lZ"/>
+                        <constraint firstItem="h4t-fN-gPM" firstAttribute="leading" secondItem="WKd-kz-9bX" secondAttribute="leading" constant="16" id="oZf-jb-7MO"/>
+                        <constraint firstAttribute="trailing" secondItem="oeE-Bx-w44" secondAttribute="trailing" constant="16" id="ufu-tm-MiN"/>
+                        <constraint firstAttribute="bottom" secondItem="oeE-Bx-w44" secondAttribute="bottom" id="xXN-g7-cP5"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EVS-Fb-Jdt">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="EVS-Fb-Jdt" firstAttribute="top" secondItem="WKd-kz-9bX" secondAttribute="bottom" id="2QS-uC-EdR"/>
+                <constraint firstItem="EVS-Fb-Jdt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3t8-GX-b8H"/>
+                <constraint firstItem="WKd-kz-9bX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7SW-XR-rJG"/>
+                <constraint firstAttribute="bottom" secondItem="EVS-Fb-Jdt" secondAttribute="bottom" id="FLG-T9-gsI"/>
+                <constraint firstAttribute="trailing" secondItem="EVS-Fb-Jdt" secondAttribute="trailing" id="amO-3U-crq"/>
+                <constraint firstAttribute="trailing" secondItem="WKd-kz-9bX" secondAttribute="trailing" id="gbY-pC-2Q2"/>
+                <constraint firstItem="WKd-kz-9bX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i3k-iR-kUi"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_service.png" width="26" height="27"/>
+        <image name="nav_studentdetails_btn_back.png" width="12" height="20"/>
+    </resources>
+</document>

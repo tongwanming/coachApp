@@ -8,6 +8,8 @@
 
 #import "PersonCenterViewController.h"
 #import "SubjectTwoPopWebViewController.h"
+#import "PersonNewsViewController.h"
+#import "eventNotictionViewController.h"
 
 @interface PersonCenterTableViewCell : UITableViewCell
 
@@ -160,7 +162,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -175,7 +177,21 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.imageUrl = _imageData[indexPath.row];
+    cell.titleStr = _titleData[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        PersonNewsViewController *v = [[PersonNewsViewController alloc] init];
+        [self.navigationController pushViewController:v animated:YES];
+    }else if (indexPath.row == 1){
+        eventNotictionViewController *v = [[eventNotictionViewController alloc] init];
+        [self.navigationController pushViewController:v animated:YES];
+    }else{
+    
+    }
 }
 
 

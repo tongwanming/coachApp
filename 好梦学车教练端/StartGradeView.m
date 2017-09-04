@@ -31,7 +31,7 @@
 
 - (void)createStart{
     for (int i = 0; i < 5; i++) {
-        UIImageView *startImage = [[UIImageView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - WIDTH)/2 + i * (STARTSIZE + SPACE), 0, STARTSIZE, STARTSIZE)];
+        UIImageView *startImage = [[UIImageView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - (STARTSIZE*5+SPACE*4))/2 + i * (STARTSIZE + SPACE), 0, STARTSIZE, STARTSIZE)];
         startImage.tag = i+1;
         startImage.image = [UIImage imageNamed:@"icon_groupevaluation_star_disable"];
         startImage.backgroundColor = [UIColor clearColor];

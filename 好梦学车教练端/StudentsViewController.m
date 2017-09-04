@@ -117,13 +117,14 @@
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
+                    _currentPersons.text = [NSString stringWithFormat:@"%lu人",(unsigned long)_data.count];
                 });
                 
             }else{
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入的账号或者密码错误，请查正后登录" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         
                     }];
@@ -137,7 +138,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
-                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"未知错误，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];
@@ -215,13 +216,14 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
+                    _totalPersons.text = [NSString stringWithFormat:@"%lu人",(unsigned long)(_data.count+_data2.count)];
                 });
                 
             }else{
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入的账号或者密码错误，请查正后登录" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         
                     }];
@@ -235,7 +237,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
-                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"未知错误，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];
@@ -297,9 +299,10 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, CURRENT_BOUNDS.width,45 )];
     label.font = [UIFont systemFontOfSize:16];
     if (section == 0) {
-        label.text = @"在学学员（3）";
+        
+        label.text = [NSString stringWithFormat:@"在学学员 (%lu)",(unsigned long)_data.count];
     }else{
-        label.text = @"已完成学员（3）";
+        label.text = [NSString stringWithFormat:@"已完成学员 (%lu)",(unsigned long)_data2.count];
     }
     label.textColor = RECORDWORK;
     //    label.backgroundColor = [UIColor redColor];
@@ -310,6 +313,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     StudentsDetailViewController *v = [[StudentsDetailViewController alloc] init];
+    StudentNewsModel *model;
+    if (indexPath.section == 0) {
+        model = _data[indexPath.row];
+    }else{
+        model = _data2[indexPath.row];
+    }
+    v.model = model;
     [self.navigationController pushViewController:v animated:YES];
 }
 

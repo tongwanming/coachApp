@@ -37,12 +37,21 @@
     [super viewWillAppear:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNewVC:) name:@"showChoosedStduents" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Appear"];
-    [self getData];
+    NSString *isLogin = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"];
+    if (isLogin) {
+        [self getData];
+    }else{
+        
+    }
+    
 }
 
 - (void)getData{
     NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
     __block NSString *cocchId = [userDic objectForKey:@"coachId"];
+    if (cocchId == nil) {
+        return;
+    }
     NSDictionary *dic =@{@"subject":[NSNull null],@"coachId":cocchId,@"type":@""};
     
     
@@ -78,6 +87,7 @@
         if (error == nil) {
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
@@ -155,7 +165,7 @@
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入的账号或者密码错误，请查正后登录" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         
                     }];
@@ -169,7 +179,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
-                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"未知错误，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];

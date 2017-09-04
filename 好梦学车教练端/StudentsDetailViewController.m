@@ -7,6 +7,7 @@
 //
 
 #import "StudentsDetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface StudentsDetailViewController ()
 
@@ -20,13 +21,13 @@
     }else if (btn.tag == 1002){
     
     }else if (btn.tag == 1003){
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"15123151660"];
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_model.contacPhone];
         UIWebView * callWebview = [[UIWebView alloc] init];
         [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
         [self.view addSubview:callWebview];
         
     }else if (btn.tag == 1004){
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"sms:%@",@"15123151660"];
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"sms:%@",_model.contacPhone];
         UIWebView * callWebview = [[UIWebView alloc] init];
         [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
         [self.view addSubview:callWebview];
@@ -58,7 +59,28 @@
     
     _messageBtn.layer.masksToBounds = YES;
     _messageBtn.layer.cornerRadius = 3;
+    
+    [self initNews];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)initNews{
+    if (_model.logoUrl) {
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+    }else{
+        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+    }
+    
+    _nameLabel.text = _model.name;
+    [_btn1 setTitle:_model.learnType forState:UIControlStateNormal];
+    [_btn2 setTitle:_model.coachName forState:UIControlStateNormal];
+    [_btn3 setTitle:_model.exercisePlace forState:UIControlStateNormal];
+    _progressLabel.text = _model.subject;
+}
+
+- (void)setModel:(StudentNewsModel *)model{
+    _model = model;
+    
 }
 
 - (void)didReceiveMemoryWarning {
