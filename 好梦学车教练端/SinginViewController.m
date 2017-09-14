@@ -139,7 +139,7 @@
         
         
         //    NSURL *url = [NSURL URLWithString:urlstr];
-        NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7072/gateway-service/auth/login"];
+        NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/gateway-service/auth/login"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
         [request setHTTPBody:jsonData];
         [request setHTTPMethod:@"POST"];

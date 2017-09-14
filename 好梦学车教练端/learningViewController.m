@@ -122,8 +122,8 @@ typedef void(^StudentBlock)(StudentNewsModel *);
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/query/student
-    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/query/student"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/query/student
+    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/query/student"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -173,6 +173,10 @@ typedef void(^StudentBlock)(StudentNewsModel *);
                         
                         _nameLabel.text = model.name;
                         _typeLabel.text = model.subject;
+                        model.exameTime = _timeLabel.text;
+                        if ([self.delegate respondsToSelector:@selector(addLearnStudentWithModel:)]) {
+                            [self.delegate performSelector:@selector(addLearnStudentWithModel:) withObject:model];
+                        }
                     }else{
                     
                     }
@@ -245,7 +249,7 @@ typedef void(^StudentBlock)(StudentNewsModel *);
     
     _nameLabel.text = model.name;
     _typeLabel.text = model.subject;
-    
+    model.exameTime = _timeLabel.text;
     if ([self.delegate respondsToSelector:@selector(addLearnStudentWithModel:)]) {
         [self.delegate performSelector:@selector(addLearnStudentWithModel:) withObject:model];
     }

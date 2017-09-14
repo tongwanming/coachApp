@@ -111,8 +111,8 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/query/student
-    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/query/remark"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/query/student
+    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/query/remark"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -148,12 +148,15 @@
                         model.iconUrl = [dic objectForKeyWithNoNsnull:@""];//此处还没有数据
                         
                         NSDictionary *coachDic = [dic objectForKeyWithNoNsnull:@"coach"];
-                        _coachModel.coachName = [coachDic objectForKeyWithNoNsnull:@"realName"];
-                        _coachModel.coachUrl = [coachDic objectForKeyWithNoNsnull:@"headPicture"];
-                        _coachModel.coachStars = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"starValue"]];
-                        _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"totalTeachNum"]];
-                        _coachModel.coachPass = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"passRate"]];
-                        _coachModel.coachEvaluate = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"remarkName"]];
+                        if (coachDic != nil && ![coachDic isKindOfClass:[NSString class]]) {
+                            _coachModel.coachName = [coachDic objectForKeyWithNoNsnull:@"realName"];
+                            _coachModel.coachUrl = [coachDic objectForKeyWithNoNsnull:@"headPicture"];
+                            _coachModel.coachStars = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"starValue"]];
+                            _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"totalTeachNum"]];
+                            _coachModel.coachPass = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"passRate"]];
+                            _coachModel.coachEvaluate = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"remarkName"]];
+                        }
+                        
                         
                         [_data addObject:model];
 

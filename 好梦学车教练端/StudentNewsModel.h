@@ -34,6 +34,8 @@
 
 @property (nonatomic, assign) int passState;//考试所在状态
 
+@property (nonatomic, strong) NSString *exameTime;//考试通过的时间 
+
 @property (nonatomic, strong) NSString *test1;
 
 @property (nonatomic, strong) NSString *test2;

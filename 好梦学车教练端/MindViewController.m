@@ -89,7 +89,7 @@
             [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
             NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/student/study/add"];
+            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/student/study/add"];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];
@@ -120,7 +120,7 @@
         }else{
             //考试通过打开
             [CustomAlertView showAlertViewWithVC:_ev];
-            NSDictionary *dic =@{@"id":_studentModel.recordId,@"result":@(_studentModel.passState)};
+            NSDictionary *dic =@{@"id":_studentModel.recordId,@"result":@(_studentModel.passState),@"examTime":_studentModel.exameTime};
             
             
             NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
@@ -140,7 +140,7 @@
             [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
             NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/student/exam"];
+            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/student/exam"];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];

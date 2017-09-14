@@ -78,8 +78,8 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/query/student
-    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/query/student"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/query/student
+    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/query/student"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -176,8 +176,8 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://172.18.21.74:7076/coach/query/student
-    NSURL *url = [NSURL URLWithString:@"http://172.18.21.74:7076/coach/query/student"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/query/student
+    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/query/student"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
