@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2931B9CF1F6BCEF40014807F /* bg_personal_defaultavatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2931B9CE1F6BCEF40014807F /* bg_personal_defaultavatar.png */; };
+		2931B9D11F6BCF3E0014807F /* pic03.png in Resources */ = {isa = PBXBuildFile; fileRef = 2931B9D01F6BCF3E0014807F /* pic03.png */; };
 		2942F1F81F3D48DA005B6A09 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2942F1F71F3D48DA005B6A09 /* star@2x.png */; };
 		2942F1FC1F3D56EC005B6A09 /* StudentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2942F1FA1F3D56EC005B6A09 /* StudentsTableViewCell.m */; };
 		2942F1FD1F3D56EC005B6A09 /* StudentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2942F1FB1F3D56EC005B6A09 /* StudentsTableViewCell.xib */; };
@@ -258,6 +260,8 @@
 
 /* Begin PBXFileReference section */
 		20EDDF5BBC8058D0E78962D5 /* Pods-好梦教练.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-好梦教练.debug.xcconfig"; path = "Pods/Target Support Files/Pods-好梦教练/Pods-好梦教练.debug.xcconfig"; sourceTree = "<group>"; };
+		2931B9CE1F6BCEF40014807F /* bg_personal_defaultavatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_personal_defaultavatar.png; sourceTree = "<group>"; };
+		2931B9D01F6BCF3E0014807F /* pic03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic03.png; sourceTree = "<group>"; };
 		2942F1F71F3D48DA005B6A09 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		2942F1F91F3D56EC005B6A09 /* StudentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsTableViewCell.h; sourceTree = "<group>"; };
 		2942F1FA1F3D56EC005B6A09 /* StudentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsTableViewCell.m; sourceTree = "<group>"; };
@@ -708,6 +712,8 @@
 				29952CE51F568F3A00E89352 /* star@3x.png */,
 				2942F1F71F3D48DA005B6A09 /* star@2x.png */,
 				29952CE31F568C6500E89352 /* star.png */,
+				2931B9CE1F6BCEF40014807F /* bg_personal_defaultavatar.png */,
+				2931B9D01F6BCF3E0014807F /* pic03.png */,
 				2960029D1F458F9500507A00 /* CameraVC */,
 				29586AE21F3C0F23000ACB81 /* Assets.xcassets */,
 				29586AE41F3C0F23000ACB81 /* LaunchScreen.storyboard */,
@@ -1337,6 +1343,7 @@
 				29586B311F3C33F4000ACB81 /* btn_recording_delete_normal@2x.png in Resources */,
 				29586B0D1F3C30B4000ACB81 /* MainViewController.xib in Resources */,
 				2986CF7C1F4A7FBF00B5592E /* icon_personalevaluation_star_half@3x.png in Resources */,
+				2931B9D11F6BCF3E0014807F /* pic03.png in Resources */,
 				29586B3B1F3C33F4000ACB81 /* tab_btn_evaluation_click@2x.png in Resources */,
 				29586B881F3C61A2000ACB81 /* tab_btn_my_normal@2x.png in Resources */,
 				295AE4B31F4C303900B0991C /* icon_messcenter_examination@3x.png in Resources */,
@@ -1385,6 +1392,7 @@
 				294A0AD51F43F6480005A986 /* icon_addrecord_go@3x.png in Resources */,
 				29586B351F3C33F4000ACB81 /* nav_btn_date@2x.png in Resources */,
 				29586B471F3C33F4000ACB81 /* tab_btn_student_normal@2x.png in Resources */,
+				2931B9CF1F6BCEF40014807F /* bg_personal_defaultavatar.png in Resources */,
 				296002C81F45992600507A00 /* SubjectTwoPopWebViewController.xib in Resources */,
 				296CD18A1F42F7C30094722E /* icon_studentdetails_call@3x.png in Resources */,
 				29586B3D1F3C33F4000ACB81 /* tab_btn_evaluation_normal@2x.png in Resources */,

@@ -70,7 +70,7 @@
     if (model.iconUrl && model.iconUrl.length > 0) {
         [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.iconUrl] placeholderImage:[UIImage imageNamed:@"pic03"]];
     }else{
-        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+        _logoImageView.image = [UIImage imageNamed:@"pic03"];
     }
     self.star = [_model.star floatValue];
     _nameLabel.text = _model.userName;

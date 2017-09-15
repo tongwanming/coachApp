@@ -137,7 +137,7 @@
                 if (arr.count >0) {
                     for (NSDictionary *dic in arr) {
                         
-                        NSDictionary *infoDic = [dic objectForKeyWithNoNsnull:@"studentIfo"];
+                        NSDictionary *infoDic = [dic objectForKeyWithNoNsnull:@"studentInfo"];
                         
                         EvaluateModel *model = [[EvaluateModel alloc] init];
                         
@@ -152,9 +152,9 @@
                             _coachModel.coachName = [coachDic objectForKeyWithNoNsnull:@"realName"];
                             _coachModel.coachUrl = [coachDic objectForKeyWithNoNsnull:@"headPicture"];
                             _coachModel.coachStars = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"starValue"]];
-                            _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"totalTeachNum"]];
+                            _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"teachNum"]];
                             _coachModel.coachPass = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"passRate"]];
-                            _coachModel.coachEvaluate = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"remarkName"]];
+                            _coachModel.coachEvaluate = [NSString stringWithFormat:@"%lu",(unsigned long)arr.count];
                         }
                         
                         
@@ -215,7 +215,7 @@
     
     UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     logoView.center = CGPointMake(CURRENT_BOUNDS.width/2, 65);
-    [logoView sd_setImageWithURL:[NSURL URLWithString:_coachModel.coachUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+    [logoView sd_setImageWithURL:[NSURL URLWithString:_coachModel.coachUrl] placeholderImage:[UIImage imageNamed:@"bg_personal_defaultavatar"]];
     logoView.layer.masksToBounds = YES;
     logoView.layer.cornerRadius = 40;
     [headView addSubview:logoView];
