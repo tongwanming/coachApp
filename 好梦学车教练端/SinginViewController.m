@@ -158,6 +158,7 @@
                 });
                 if (success.boolValue) {
                     NSDictionary *dic = [jsonDict objectForKey:@"data"];
+                    
                     NSString *token = [dic objectForKey:@"token"];
                     NSDictionary *userInfoDic = [dic objectForKey:@"info"];
                     

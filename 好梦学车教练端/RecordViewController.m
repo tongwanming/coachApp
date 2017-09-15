@@ -49,7 +49,7 @@
 - (void)getData{
     NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
     __block NSString *cocchId = [userDic objectForKey:@"coachId"];
-    if (cocchId == nil) {
+    if ([userDic objectForKey:@"coachId"] == nil) {
         return;
     }
     NSDictionary *dic =@{@"subject":[NSNull null],@"coachId":cocchId,@"type":@""};
@@ -107,17 +107,22 @@
                 for (NSDictionary *dic in arr1) {
                     NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
                     
-                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                    if ([infoDic isEqual:[NSNull null]]) {
+                        
+                    }else{
+                        StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                        
+                        model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                        model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                        model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                        model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                        model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                        model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                        model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                        model.coachId = cocchId;
+                        [mutArr1 addObject:model];
+                    }
                     
-                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
-                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                    model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
-                    model.coachId = cocchId;
-                    [mutArr1 addObject:model];
                 }
                 
                 
