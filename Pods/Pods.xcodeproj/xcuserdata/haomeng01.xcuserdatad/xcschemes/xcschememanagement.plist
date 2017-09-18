@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-好梦教练.xcscheme</key>
+		<key>Pods-好梦教练端.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,7 +17,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>29C63B92F223EC30E5878F951AE6AFE0</key>
+		<key>71B94E9EE456E417AD7E0B22688B9A65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
