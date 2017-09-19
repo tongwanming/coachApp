@@ -13,6 +13,8 @@
 #import "NSDictionary+objectForKeyWitnNoNsnull.h"
 #import "UIImageView+WebCache.h"
 
+typedef void(^hasDataBlock)(BOOL);
+
 @interface examingRecordViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -20,6 +22,8 @@
 @property (nonatomic, strong) NSMutableArray *data;
 
 @property (nonatomic, assign) int passState;//通过为4，不通过为5
+
+@property (nonatomic, copy)hasDataBlock hasDataBlock;
 
 @end
 
@@ -91,6 +95,11 @@
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (void)currentHasDataWithBlock:(void (^)(BOOL))block{
+    _hasDataBlock = block;
+}
+
 - (IBAction)passBtnClick:(id)sender {
     UIButton *btn = sender;
     if (btn.tag == 1001) {
@@ -145,6 +154,8 @@
     
     NSURLSession *session = [NSURLSession sharedSession];
     [CustomAlertView showAlertViewWithVC:self];
+    
+    __weak __typeof(&*self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -154,6 +165,7 @@
                 [CustomAlertView hideAlertView];
             });
             if (success.boolValue) {
+               
                 NSArray *arr = [jsonDict objectForKey:@"data"];
                 //                NSString *token = [dic objectForKey:@"token"];
                 //                NSDictionary *userInfoDic = [dic objectForKey:@"info"];
@@ -182,9 +194,9 @@
                     if (_data && _data.count > 0) {
                         StudentNewsModel *model = _data[0];
                         if (model.logoUrl) {
-                            [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+                            [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
                         }else{
-                            _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+                            _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
                         }
                         
                         _nameLabel.text = model.name;
@@ -201,6 +213,7 @@
                 });
                 
             }else{
+                
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
@@ -228,8 +241,19 @@
                 }];
             });
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_hasDataBlock) {
+                if (_data.count > 0) {
+                    _hasDataBlock(YES);
+                }else{
+                    _hasDataBlock(NO);
+                }
+            }
+        });
     }];
     [dataTask resume];
+    
+    
 }
 
 
@@ -258,9 +282,9 @@
     
     StudentNewsModel *model = _data[indexPath.row];
     if (model.logoUrl) {
-        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
     }else{
-        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+        _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     }
     
     _nameLabel.text = model.name;

@@ -24,7 +24,7 @@
 
 - (void)initialize{
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, (CURRENT_BOUNDS.width-90)/4, (CURRENT_BOUNDS.width-90)/4)];
-    _imageView.image = [UIImage imageNamed:@"seaKing"];
+    _imageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     _imageView.layer.masksToBounds = YES;
     _imageView.layer.cornerRadius = 8;
     [self addSubview:_imageView];
@@ -68,9 +68,9 @@
 - (void)setModel:(StudentNewsModel *)model{
     _model = model;
     if (model.logoUrl) {
-        [_imageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+        [_imageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
     }else{
-        _imageView.image = [UIImage imageNamed:@"seaKing"];
+        _imageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     }
     _titleLabel.text = model.name;
     

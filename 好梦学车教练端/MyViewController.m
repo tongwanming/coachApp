@@ -13,6 +13,7 @@
 #import "FinishPersonNewsViewController.h"
 #import "SettingViewController.h"
 #import "PersonCenterViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface MyViewTableViewcell : UITableViewCell
 
@@ -104,6 +105,13 @@
         
     }
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[userDic objectForKey:@"userLogoImage"]]] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar.png"]];
+    _nameLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"userName"]];
+    _locationLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"address"]];
+    _numberPersons.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"totalTeachNum"]];
+    _passLabel.text = [NSString stringWithFormat:@"%@%%",[userDic objectForKey:@"passRate"]];
+    _studentsLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"passRate"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -135,6 +143,9 @@
 //    _logoImageView.backgroundColor = [UIColor redColor];
     
     [_tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    
+    
+   
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -172,34 +183,49 @@
     
     cell.titleStr = _titleData[indexPath.row];
     if (indexPath.section == 0 && indexPath.row == 1) {
-         cell.detailStr = @"1条未读";
+//         cell.detailStr = @"1条未读";
     }
     if (indexPath.section == 1) {
         cell.imageStr = _imageData[2];
         cell.titleStr = _titleData[2];
     }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 0) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            UIAlertController *v = [UIAlertController alertControllerWithTitle:@"提示" message:@"程序员正在拼命开发中......" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        if (indexPath.row == 0) {
+//            UIAlertController *v = [UIAlertController alertControllerWithTitle:@"提示" message:@"程序员正在拼命开发中......" preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//                
+//            }];
+//            [v addAction:active];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self presentViewController:v animated:YES completion:^{
+//                    
+//                }];
+//            });
+//        }else{
+//            PersonCenterViewController *v = [[PersonCenterViewController alloc] init];
+//            [self.navigationController pushViewController:v animated:YES];
+//        }
+        UIAlertController *v = [UIAlertController alertControllerWithTitle:@"提示" message:@"程序员正在拼命开发中......" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [v addAction:active];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:v animated:YES completion:^{
                 
             }];
-            [v addAction:active];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self presentViewController:v animated:YES completion:^{
-                    
-                }];
-            });
-        }else{
-            PersonCenterViewController *v = [[PersonCenterViewController alloc] init];
-            [self.navigationController pushViewController:v animated:YES];
-        }
+        });
     }else if (indexPath.section ==1){
         SettingViewController *v = [[SettingViewController alloc] init];
         [self.navigationController pushViewController:v animated:YES];

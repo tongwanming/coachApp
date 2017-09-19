@@ -66,9 +66,9 @@
 
 - (void)initNews{
     if (_model.logoUrl) {
-        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
     }else{
-        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+        _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     }
     
     _nameLabel.text = _model.name;

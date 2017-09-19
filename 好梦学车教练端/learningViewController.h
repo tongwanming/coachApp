@@ -31,4 +31,6 @@
 
 - (void)choosedPersonBlock:(void(^)(StudentNewsModel *model))block;
 
+- (void)currentHasDataBlock:(void(^)(BOOL hasData))block;
+
 @end

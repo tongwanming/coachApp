@@ -246,15 +246,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     _VCData = [[NSMutableArray alloc] init];
     
     _v = [[learningViewController alloc] init];
     _v.delegate = self;
+    [_v currentHasDataBlock:^(BOOL hasData) {
+        if (hasData) {
+            _resaveBtn.alpha = 1;
+            _resaveBtn.userInteractionEnabled = YES;
+        }else{
+            _resaveBtn.alpha = 0.5;
+            _resaveBtn.userInteractionEnabled = NO;
+        }
+    }];
     [self addChildViewController:_v];
    
     
     _ev = [[examingRecordViewController alloc] init];
     _ev.delegate = self;
+    [_ev currentHasDataWithBlock:^(BOOL hasData) {
+        if (hasData) {
+            _resaveBtn.alpha = 1;
+            _resaveBtn.userInteractionEnabled = YES;
+        }else{
+            _resaveBtn.alpha = 0.5;
+            _resaveBtn.userInteractionEnabled = NO;
+        }
+    }];
     [self addChildViewController:_ev];
     
     [_VCData addObject:_v];

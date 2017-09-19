@@ -15,6 +15,8 @@
 
 typedef void(^StudentBlock)(StudentNewsModel *);
 
+typedef void(^hasDataBlock)(BOOL);
+
 @interface learningViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -22,6 +24,8 @@ typedef void(^StudentBlock)(StudentNewsModel *);
 @property (nonatomic, strong) StudentBlock student_block;
 
 @property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, copy) hasDataBlock hasDataBlock;
 
 @end
 
@@ -54,6 +58,10 @@ typedef void(^StudentBlock)(StudentNewsModel *);
 
 - (void)choosedPersonBlock:(void (^)(StudentNewsModel *))block{
     _student_block = block;
+}
+
+- (void)currentHasDataBlock:(void (^)(BOOL))block{
+    _hasDataBlock = block;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -132,6 +140,8 @@ typedef void(^StudentBlock)(StudentNewsModel *);
     
     NSURLSession *session = [NSURLSession sharedSession];
     [CustomAlertView showAlertViewWithVC:self];
+    
+    __weak __typeof (&*self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -140,7 +150,11 @@ typedef void(^StudentBlock)(StudentNewsModel *);
                 
                 [CustomAlertView hideAlertView];
             });
+            if (jsonDict == nil) {
+                return ;
+            }
             if (success.boolValue) {
+                
                 NSArray *arr = [jsonDict objectForKey:@"data"];
                 if (_data.count > 0) {
                     [_data removeAllObjects];
@@ -162,13 +176,14 @@ typedef void(^StudentBlock)(StudentNewsModel *);
                 
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    
                     [_collectionView reloadData];
                     if (_data && _data.count > 0) {
                         StudentNewsModel *model = _data[0];
                         if (model.logoUrl) {
-                            [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+                            [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
                         }else{
-                            _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+                            _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
                         }
                         
                         _nameLabel.text = model.name;
@@ -187,6 +202,7 @@ typedef void(^StudentBlock)(StudentNewsModel *);
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
+                    
                     UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"数据获取失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         
@@ -211,8 +227,20 @@ typedef void(^StudentBlock)(StudentNewsModel *);
                 }];
             });
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_hasDataBlock) {
+                if (_data.count > 0) {
+                    _hasDataBlock(YES);
+                }else{
+                    _hasDataBlock(NO);
+                }
+                
+            }
+        });
     }];
     [dataTask resume];
+    
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -242,9 +270,9 @@ typedef void(^StudentBlock)(StudentNewsModel *);
     
     StudentNewsModel *model = _data[indexPath.row];
     if (model.logoUrl) {
-        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
     }else{
-        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+        _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     }
     
     _nameLabel.text = model.name;

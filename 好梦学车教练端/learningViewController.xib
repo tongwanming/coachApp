@@ -147,7 +147,7 @@
                                 <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="xf5-w8-csG"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="韩肖莉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPV-TA-9vp">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPV-TA-9vp">
                             <rect key="frame" x="17" y="129" width="100" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="5lu-wh-t3d"/>

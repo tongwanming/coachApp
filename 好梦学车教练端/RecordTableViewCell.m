@@ -21,9 +21,9 @@
 - (void)setModel:(StudentNewsModel *)model{
     _model = model;
     if (model.logoUrl) {
-        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"seaKing"]];
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
     }else{
-        _logoImageView.image = [UIImage imageNamed:@"seaKing"];
+        _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     }
     _nameLabel.text = model.name;
     _desLabelOne.text = model.subject;

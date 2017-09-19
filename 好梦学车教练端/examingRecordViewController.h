@@ -31,4 +31,6 @@
 
 @property (nonatomic, weak) id<examingRecordViewControllerDelegate>delegate;
 
+- (void)currentHasDataWithBlock:(void(^)(BOOL hasData))block;
+
 @end

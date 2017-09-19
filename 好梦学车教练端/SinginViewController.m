@@ -168,14 +168,19 @@
                     if (!userInfoDic) {
                         userDic = [[NSMutableDictionary alloc] init];
                     }
-                    [userDic setValue:[self choosedObjectWithKey:@"nickname" andDic:userInfoDic] forKey:@"userName"];
+                    [userDic setValue:[self choosedObjectWithKey:@"realName" andDic:userInfoDic] forKey:@"userName"];
                     
                     [userDic setValue:[self choosedObjectWithKey:@"headPicture" andDic:userInfoDic] forKey:@"userLogoImage"];
                     
-                    [userDic setValue:[self choosedObjectWithKey:@"district" andDic:userInfoDic] forKey:@"address"];
+                    [userDic setValue:[self choosedObjectWithKey:@"district" andDic:userInfoDic] forKey:@"district"];
+                    [userDic setValue:[self choosedObjectWithKey:@"address" andDic:userInfoDic] forKey:@"address"];
                     [userDic setValue:[self choosedObjectWithKey:@"userId" andDic:userInfoDic] forKey:@"userId"];
                     
                     [userDic setValue:[self choosedObjectWithKey:@"id" andDic:userInfoDic] forKey:@"coachId"];
+                    [userDic setValue:[self choosedObjectWithKey:@"city" andDic:userInfoDic] forKey:@"city"];
+                    [userDic setValue:[self choosedObjectWithKey:@"totalTeachNum" andDic:userInfoDic] forKey:@"totalTeachNum"];
+                    [userDic setValue:[self choosedObjectWithKey:@"passRate" andDic:userInfoDic] forKey:@"passRate"];
+                    [userDic setValue:[self choosedObjectWithKey:@"passRate" andDic:userInfoDic] forKey:@"passRate"];
                     
                     
                     [[NSUserDefaults standardUserDefaults] setObject:userDic forKey:@"personNews"];
