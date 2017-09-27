@@ -180,7 +180,7 @@
                     [userDic setValue:[self choosedObjectWithKey:@"city" andDic:userInfoDic] forKey:@"city"];
                     [userDic setValue:[self choosedObjectWithKey:@"totalTeachNum" andDic:userInfoDic] forKey:@"totalTeachNum"];
                     [userDic setValue:[self choosedObjectWithKey:@"passRate" andDic:userInfoDic] forKey:@"passRate"];
-                    [userDic setValue:[self choosedObjectWithKey:@"passRate" andDic:userInfoDic] forKey:@"passRate"];
+                    [userDic setValue:[self choosedObjectWithKey:@"totalRemarkNum" andDic:userInfoDic] forKey:@"totalRemarkNum"];
                     
                     
                     [[NSUserDefaults standardUserDefaults] setObject:userDic forKey:@"personNews"];

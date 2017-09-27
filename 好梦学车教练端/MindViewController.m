@@ -108,11 +108,33 @@
                         });
                         
                     }else{
-                        
+                        //验证码输入错误
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [CustomAlertView hideAlertView];
+                            UIAlertController *v = [UIAlertController alertControllerWithTitle:@"签到失败" message:@"当前学员今天已经签到，请不要重复签到！" preferredStyle:UIAlertControllerStyleAlert];
+                            UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                                
+                            }];
+                            [v addAction:active];
+                            [self presentViewController:v animated:YES completion:^{
+                                
+                            }];
+                        });
+                       
                     }
                 }else{
                    
-
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [CustomAlertView hideAlertView];
+                        UIAlertController *v = [UIAlertController alertControllerWithTitle:@"签到失败" message:@"网络异常！" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                            
+                        }];
+                        [v addAction:active];
+                        [self presentViewController:v animated:YES completion:^{
+                            
+                        }];
+                    });
                 }
             }];
             [dataTask resume];
@@ -120,7 +142,10 @@
         }else{
             //考试通过打开
             [CustomAlertView showAlertViewWithVC:_ev];
-            NSDictionary *dic =@{@"id":_studentModel.recordId,@"result":@(_studentModel.passState),@"examTime":_studentModel.exameTime};
+            if (_studentModel.passState) {
+                _studentModel.passState = 4;
+            }
+            NSDictionary *dic =@{@"id":_studentModel.recordId,@"result":@(_studentModel.passState),@"isPassFirstTime":@false,@"remark":@"",@"examTime":_studentModel.exameTime};
             
             
             NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
@@ -140,7 +165,7 @@
             [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
             NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/student/exam"];
+            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/manage-service/coach/student/exam"];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];
@@ -159,11 +184,31 @@
                         });
                         
                     }else{
-                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [CustomAlertView hideAlertView];
+                            UIAlertController *v = [UIAlertController alertControllerWithTitle:@"添加考试记录失败" message:@"当前学员此科目已经考试通过！" preferredStyle:UIAlertControllerStyleAlert];
+                            UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                                
+                            }];
+                            [v addAction:active];
+                            [self presentViewController:v animated:YES completion:^{
+                                
+                            }];
+                        });
                     }
                 }else{
                     
-                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [CustomAlertView hideAlertView];
+                        UIAlertController *v = [UIAlertController alertControllerWithTitle:@"添加考试记录失败" message:@"网络异常！" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                            
+                        }];
+                        [v addAction:active];
+                        [self presentViewController:v animated:YES completion:^{
+                            
+                        }];
+                    });
                 }
             }];
             [dataTask resume];
@@ -234,6 +279,16 @@
         [v addAction:action3];
         [v addAction:action4];
         [self presentViewController:v animated:YES completion:nil];
+    }else if (btn.tag == 1003){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_resaveBtn setTitle:@"考试通过并保存" forState:UIControlStateNormal];
+        });
+        
+    }else if (btn.tag == 1004){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_resaveBtn setTitle:@"考试未通过并保存" forState:UIControlStateNormal];
+        });
+        
     }else{
         
     }

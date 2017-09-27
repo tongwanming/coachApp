@@ -137,7 +137,7 @@
                                 <constraint firstAttribute="height" constant="10" id="u5e-mL-yGB"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRs-B2-9MT">
+                        <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRs-B2-9MT">
                             <rect key="frame" x="254.5" y="124" width="100.5" height="36"/>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.94901960780000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -151,7 +151,7 @@
                                 <action selector="passBtnClick:" destination="-1" eventType="touchUpInside" id="zGL-96-jWX"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rz-br-4DW">
+                        <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rz-br-4DW">
                             <rect key="frame" x="134" y="124" width="100.5" height="36"/>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.94901960780000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>

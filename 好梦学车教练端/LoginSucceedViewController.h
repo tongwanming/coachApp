@@ -9,5 +9,6 @@
 #import "BasicViewController.h"
 
 @interface LoginSucceedViewController : BasicViewController
+@property (weak, nonatomic) IBOutlet UILabel *desLabel;
 
 @end

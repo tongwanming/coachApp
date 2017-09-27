@@ -102,16 +102,22 @@
         _logoImageView.image = [UIImage imageWithData:image];
         
     }else{
-        
+         [_logoImageView sd_setImageWithURL:[NSURL URLWithString:(NSString *)image] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar.png"]];
     }
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",[userDic objectForKey:@"userLogoImage"]]] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar.png"]];
+    
+   
     _nameLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"userName"]];
     _locationLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"address"]];
     _numberPersons.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"totalTeachNum"]];
     _passLabel.text = [NSString stringWithFormat:@"%@%%",[userDic objectForKey:@"passRate"]];
-    _studentsLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"passRate"]];
+    if ([NSString stringWithFormat:@"%@",[userDic objectForKey:@"totalRemarkNum"]].length > 0) {
+        _studentsLabel.text = [NSString stringWithFormat:@"%@",[userDic objectForKey:@"totalRemarkNum"]];
+    }else{
+        _studentsLabel.text = @"0";
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

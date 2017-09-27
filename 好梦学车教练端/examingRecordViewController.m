@@ -102,13 +102,13 @@ typedef void(^hasDataBlock)(BOOL);
 
 - (IBAction)passBtnClick:(id)sender {
     UIButton *btn = sender;
-    if (btn.tag == 1001) {
+    if (btn.tag == 1003) {
         _passBtn.selected = YES;
         _noPassBtn.selected = NO;
         _passBtn.backgroundColor = BLUE_BACKGROUND_COLOR;
         _noPassBtn.backgroundColor = EFF2F6;
         _passState = 4;
-    }else if (btn.tag == 1002){
+    }else if (btn.tag == 1004){
         _passBtn.selected = NO;
         _noPassBtn.selected = YES;
         _passBtn.backgroundColor = EFF2F6;
@@ -117,6 +117,9 @@ typedef void(^hasDataBlock)(BOOL);
     }else{
     
     }
+//    if ([self.delegate respondsToSelector:@selector(examingRecordViewControllerClickWithBtn:)]) {
+//        [self.delegate performSelector:@selector(examingRecordViewControllerClickWithBtn:) withObject:btn];
+//    }
 }
 
 - (void)getData{

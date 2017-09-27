@@ -20,11 +20,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="6j8-VN-vcH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="6j8-VN-vcH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="6j8-VN-vcH" secondAttribute="bottom" id="N6X-wG-SaH"/>
                             <constraint firstItem="6j8-VN-vcH" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Nx0-WT-j3D"/>
@@ -39,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star.png" width="540" height="960"/>
+        <image name="star@3x.png" width="16" height="16"/>
     </resources>
 </document>

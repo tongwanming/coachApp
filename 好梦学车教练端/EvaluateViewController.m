@@ -135,6 +135,7 @@
                     [_data removeAllObjects];
                 }
                 if (arr.count >0) {
+                    NSDictionary *oldDic = arr[0];
                     for (NSDictionary *dic in arr) {
                         
                         NSDictionary *infoDic = [dic objectForKeyWithNoNsnull:@"studentInfo"];
@@ -152,15 +153,24 @@
                             _coachModel.coachName = [coachDic objectForKeyWithNoNsnull:@"realName"];
                             _coachModel.coachUrl = [coachDic objectForKeyWithNoNsnull:@"headPicture"];
                             _coachModel.coachStars = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"starValue"]];
-                            _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"teachNum"]];
+                            _coachModel.coachPersons = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"totalTeachNum"]];
                             _coachModel.coachPass = [NSString stringWithFormat:@"%@",[coachDic objectForKeyWithNoNsnull:@"passRate"]];
-                            _coachModel.coachEvaluate = [NSString stringWithFormat:@"%lu",(unsigned long)arr.count];
+                            if (![[oldDic objectForKey:@"isRemark"] isEqual:[NSNull null]]) {
+                                _coachModel.coachEvaluate = [NSString stringWithFormat:@"%lu",(unsigned long)arr.count];
+                            }else{
+                                _coachModel.coachEvaluate = @"0";
+                            }
+                            
+                        }
+                        
+                        if (![[oldDic objectForKey:@"isRemark"] isEqual:[NSNull null]]) {
+                            [_data addObject:model];
                         }
                         
                         
-                        [_data addObject:model];
-
                     }
+                    
+                    
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [_tableView reloadData];
                     });

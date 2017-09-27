@@ -103,6 +103,8 @@
                 }
                 for (NSDictionary *dic in arr) {
                     NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                    NSDictionary *coachDic = [dic objectForKey:@"coach"];
+                    NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
                     
                     StudentNewsModel *model = [[StudentNewsModel alloc] init];
                     
@@ -112,6 +114,8 @@
                     model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
                     model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
                     model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                    model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
+                    model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
                     model.coachId = cocchId;
                     [_data addObject:model];
                 }
@@ -201,6 +205,8 @@
                 }
                 for (NSDictionary *dic in arr) {
                     NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                    NSDictionary *coachDic = [dic objectForKey:@"coach"];
+                    NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
                     
                     StudentNewsModel *model = [[StudentNewsModel alloc] init];
                     
@@ -210,6 +216,8 @@
                     model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
                     model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
                     model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                    model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
+                    model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
                     model.coachId = cocchId;
                     [_data2 addObject:model];
                 }

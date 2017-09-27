@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _desLabel.font = [UIFont systemFontOfSize:36*TYPERATION];
     // Do any additional setup after loading the view from its nib.
 }
 
