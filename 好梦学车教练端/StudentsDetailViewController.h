@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *callBtn;
 @property (weak, nonatomic) IBOutlet UIButton *messageBtn;
+@property (weak, nonatomic) IBOutlet UILabel *addTime;
 
 @property (nonatomic, strong) StudentNewsModel *model;
 

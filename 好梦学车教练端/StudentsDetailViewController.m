@@ -8,6 +8,7 @@
 
 #import "StudentsDetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "LearnRecordViewController.h"
 
 @interface StudentsDetailViewController ()
 
@@ -31,7 +32,12 @@
         UIWebView * callWebview = [[UIWebView alloc] init];
         [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
         [self.view addSubview:callWebview];
-    }else{
+    }else if (btn.tag == 1005){
+        //进入学车记录
+        LearnRecordViewController *v = [[LearnRecordViewController alloc] init];
+        [self.navigationController pushViewController:v animated:YES];
+    }
+    else{
     
     }
 }

@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *desLabelOne;
 @property (weak, nonatomic) IBOutlet UILabel *desLabelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *recordMarkLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recordTime;
+
+@property (nonatomic, assign) BOOL showRecordLabel;
 
 @property (nonatomic, strong) StudentNewsModel *model;
 

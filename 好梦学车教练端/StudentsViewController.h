@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentPersons;
 @property (weak, nonatomic) IBOutlet UILabel *totalPersons;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
+@property (weak, nonatomic) IBOutlet UIButton *btn2;
 
 @end

@@ -30,6 +30,15 @@
     
 }
 
+- (void)setShowRecordLabel:(BOOL)showRecordLabel{
+    _showRecordLabel = showRecordLabel;
+    if (showRecordLabel) {
+        _recordTime.hidden = NO;
+    }else{
+        _recordTime.hidden = YES;
+    }
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

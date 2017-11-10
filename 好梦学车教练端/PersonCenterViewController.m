@@ -10,6 +10,9 @@
 #import "SubjectTwoPopWebViewController.h"
 #import "PersonNewsViewController.h"
 #import "eventNotictionViewController.h"
+#import "ScanSuccessJumpVC.h"
+#import <AVFoundation/AVFoundation.h>
+#import "SGQRCodeScanningVC.h"
 
 @interface PersonCenterTableViewCell : UITableViewCell
 
@@ -132,7 +135,62 @@
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Disappear"];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNewVC:) name:@"showChoosedStduents" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Disappear"];
+}
+
+- (void)showNewVC:(NSNotification *)notification{
+    // 1、 获取摄像设备
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (device) {
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusNotDetermined) {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (granted) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
+                        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                        [self presentViewController:nav animated:YES completion:^{
+                            
+                        }];
+                        
+                    });
+                    // 用户第一次同意了访问相机权限
+                    NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                    
+                } else {
+                    // 用户第一次拒绝了访问相机权限
+                    NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                }
+            }];
+        } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+            SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nav animated:YES completion:^{
+                
+            }];
+        } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请去-> [设置 - 隐私 - 相机 - SGQRCodeExample] 打开访问开关" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertC addAction:alertA];
+            [self presentViewController:alertC animated:YES completion:nil];
+            
+        } else if (status == AVAuthorizationStatusRestricted) {
+            NSLog(@"因为系统原因, 无法访问相册");
+        }
+    } else {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"未检测到您的摄像头" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertC addAction:alertA];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -142,7 +200,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Appear"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Appear"];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 

@@ -14,6 +14,8 @@
 #import "RecordViewController.h"
 #import "TSZTabBar.h"
 
+#import "PersonCenterViewController.h"
+
 //test
 #import "CustonNavViewController.h"
 
@@ -28,8 +30,8 @@
     
     [self addChildVc:[[RecordViewController alloc] init] title:@"记录" image:[UIImage imageNamed:@"tab_btn_recording_normal@2x"] selectedImage:[UIImage imageNamed:@"tab_btn_recording_click@2x"] andHasNav:YES withFrame:CGRectMake(0, 0, CURRENT_BOUNDS.width/5, 44)];
     [self addChildVc:[[StudentsViewController alloc] init] title:@"学员" image:[UIImage imageNamed:@"tab_btn_student_normal@2x"] selectedImage:[UIImage imageNamed:@"tab_btn_student_click@2x"] andHasNav:YES withFrame:CGRectMake(CURRENT_BOUNDS.width/5, 0, CURRENT_BOUNDS.width/5, 44)];
-    [self addChildVc:[[MindViewController alloc] init] title:@"" image:[UIImage imageNamed:@"tab_btn_add_normal@2x"] selectedImage:[UIImage imageNamed:@"tab_btn_add_normal@2x"] andHasNav:YES withFrame:CGRectMake(CURRENT_BOUNDS.width/5*2, 0, CURRENT_BOUNDS.width/5, 44)];
-    [self addChildVc:[[EvaluateViewController alloc] init] title:@"评价" image:[UIImage imageNamed:@"tab_btn_evaluation_normal@2x"] selectedImage:[UIImage imageNamed:@"tab_btn_evaluation_click@2x"] andHasNav:YES withFrame:CGRectMake(CURRENT_BOUNDS.width/5*3, 0, CURRENT_BOUNDS.width/5, 44)];
+    [self addChildVc:[[MindViewController alloc] init] title:@"" image:[UIImage imageNamed:@"btn_navbar_add_normal@2x"] selectedImage:[UIImage imageNamed:@"btn_navbar_add_normal@2x"] andHasNav:YES withFrame:CGRectMake(CURRENT_BOUNDS.width/5*2, 0, CURRENT_BOUNDS.width/5, 44)];
+    [self addChildVc:[[PersonCenterViewController alloc] init] title:@"消息" image:[UIImage imageNamed:@"btn_barnav_message_normal@2x"] selectedImage:[UIImage imageNamed:@"btn_barnav_message_normal@2x"] andHasNav:YES withFrame:CGRectMake(CURRENT_BOUNDS.width/5*3, 0, CURRENT_BOUNDS.width/5, 44)];
     [self addChildVc:[[MyViewController alloc] init] title:@"我的" image:[UIImage imageNamed:@"tab_btn_my_normal@2x"] selectedImage:[UIImage imageNamed:@"tab_btn_my_click@2x"] andHasNav:YES withFrame:CGRectMake(CURRENT_BOUNDS.width/5*4, 0, CURRENT_BOUNDS.width/5, 44)];
     
     TSZTabBar *tabBar = [[TSZTabBar alloc] init];

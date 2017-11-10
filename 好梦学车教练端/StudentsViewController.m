@@ -13,12 +13,17 @@
 #import "CustomAlertView.h"
 #import "StudentNewsModel.h"
 #import "NSDictionary+objectForKeyWitnNoNsnull.h"
+#import "ScanSuccessJumpVC.h"
+#import <AVFoundation/AVFoundation.h>
+#import "SGQRCodeScanningVC.h"
 
 @interface StudentsViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *data;
 
-@property (nonatomic, strong) NSMutableArray *data2;
+@property (nonatomic, strong) NSString *titleStr;
+
+//@property (nonatomic, strong) NSMutableArray *data2;
 
 @end
 
@@ -29,7 +34,36 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNewVC:) name:@"showChoosedStduents" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SubViewController" object:@"Appear"];
     [self getData1];
-    [self getData2];
+    _btn1.backgroundColor = BLUE_BACKGROUND_COLOR;
+    [_btn1 setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+    
+    _btn2.backgroundColor = [UIColor whiteColor];
+    [_btn2 setTitleColor:TEXT_COLOR forState: UIControlStateNormal];
+    
+}
+- (IBAction)btnClick:(id)sender {
+    UIButton *btn = sender;
+    if (btn.tag == 1001) {
+        //在学
+        self.titleStr = @"在学学员";
+        _btn1.backgroundColor = BLUE_BACKGROUND_COLOR;
+        [_btn1 setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+        
+        _btn2.backgroundColor = [UIColor whiteColor];
+        [_btn2 setTitleColor:TEXT_COLOR forState: UIControlStateNormal];
+        [self getData1];
+    }else if (btn.tag == 1002){
+        //已完成
+        self.titleStr = @"结业学员";
+        _btn2.backgroundColor = BLUE_BACKGROUND_COLOR;
+        [_btn2 setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+        
+        _btn1.backgroundColor = [UIColor whiteColor];
+        [_btn1 setTitleColor:TEXT_COLOR forState: UIControlStateNormal];
+        [self getData2];
+    }else{
+        
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -38,10 +72,61 @@
 }
 
 - (void)showNewVC:(NSNotification *)notification{
-    MindViewController *v = [[MindViewController alloc] init];
+//    ScanSuccessJumpVC *v = [[ScanSuccessJumpVC alloc] init];
+//    
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
+//    [self presentViewController:nav animated:YES completion:nil];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:v];
-    [self presentViewController:nav animated:YES completion:nil];
+    // 1、 获取摄像设备
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (device) {
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusNotDetermined) {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (granted) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
+                        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                        [self presentViewController:nav animated:YES completion:^{
+                            
+                        }];
+                    });
+                    // 用户第一次同意了访问相机权限
+                    NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                    
+                } else {
+                    // 用户第一次拒绝了访问相机权限
+                    NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                }
+            }];
+        } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+            SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nav animated:YES completion:^{
+                
+            }];
+        } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请去-> [设置 - 隐私 - 相机 - SGQRCodeExample] 打开访问开关" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertC addAction:alertA];
+            [self presentViewController:alertC animated:YES completion:nil];
+            
+        } else if (status == AVAuthorizationStatusRestricted) {
+            NSLog(@"因为系统原因, 无法访问相册");
+        }
+    } else {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"未检测到您的摄像头" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertC addAction:alertA];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
+
 }
 
 - (void)viewDidLoad {
@@ -50,7 +135,9 @@
     _tableView.dataSource = self;
     
     _data = [[NSMutableArray alloc] init];
-    _data2 = [[NSMutableArray alloc] init];
+    self.titleStr = @"在学学员";
+    [_btn1 setTitle:@"在学" forState:UIControlStateNormal];
+    [_btn2 setTitle:@"结业" forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -122,6 +209,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
                     _currentPersons.text = [NSString stringWithFormat:@"%lu人",(unsigned long)_data.count];
+                    [_btn1 setTitle:[NSString stringWithFormat:@"在学：%lu人",(unsigned long)_data.count] forState:UIControlStateNormal];
                 });
                 
             }else{
@@ -200,8 +288,8 @@
             });
             if (success.boolValue) {
                 NSArray *arr = [jsonDict objectForKey:@"data"];
-                if (_data2.count > 0) {
-                    [_data2 removeAllObjects];
+                if (_data.count > 0) {
+                    [_data removeAllObjects];
                 }
                 for (NSDictionary *dic in arr) {
                     NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
@@ -219,12 +307,13 @@
                     model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
                     model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
                     model.coachId = cocchId;
-                    [_data2 addObject:model];
+                    [_data addObject:model];
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
-                    _totalPersons.text = [NSString stringWithFormat:@"%lu人",(unsigned long)(_data.count+_data2.count)];
+                    _totalPersons.text = [NSString stringWithFormat:@"%lu人",(unsigned long)(_data.count)];
+                    [_btn2 setTitle:[NSString stringWithFormat:@"结业：%lu人",(unsigned long)_data.count] forState:UIControlStateNormal];
                 });
                 
             }else{
@@ -268,14 +357,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return _data.count;
-    }else
-        return _data2.count;
+   return _data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -292,11 +378,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     StudentNewsModel *model;
-    if (indexPath.section == 0) {
-        model = _data[indexPath.row];
-    }else{
-        model = _data2[indexPath.row];
-    }
+    model = _data[indexPath.row];
     cell.model = model;
     return cell;
 }
@@ -306,12 +388,7 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, CURRENT_BOUNDS.width,45 )];
     label.font = [UIFont systemFontOfSize:16];
-    if (section == 0) {
-        
-        label.text = [NSString stringWithFormat:@"在学学员 (%lu)",(unsigned long)_data.count];
-    }else{
-        label.text = [NSString stringWithFormat:@"已完成学员 (%lu)",(unsigned long)_data2.count];
-    }
+    label.text = [NSString stringWithFormat:@"%@ (%lu)",self.titleStr,(unsigned long)_data.count];
     label.textColor = RECORDWORK;
     //    label.backgroundColor = [UIColor redColor];
     [veiw addSubview:label];
@@ -322,11 +399,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     StudentsDetailViewController *v = [[StudentsDetailViewController alloc] init];
     StudentNewsModel *model;
-    if (indexPath.section == 0) {
-        model = _data[indexPath.row];
-    }else{
-        model = _data2[indexPath.row];
-    }
+    model = _data[indexPath.row];
     v.model = model;
     [self.navigationController pushViewController:v animated:YES];
 }
