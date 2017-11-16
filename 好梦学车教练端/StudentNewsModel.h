@@ -40,4 +40,6 @@
 
 @property (nonatomic, strong) NSString *test2;
 
+@property (nonatomic, strong) NSString *addTime;//分配时间
+
 @end

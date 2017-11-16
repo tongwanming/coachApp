@@ -76,8 +76,9 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/student/query/study
-    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/student/query/study"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://%@:7076/coach/student/query/study
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7076/coach/student/query/study",PUBLIC_LOCATION]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -107,59 +108,72 @@
                 NSMutableArray *mutArr1 = [[NSMutableArray alloc] init];
                 NSMutableArray *mutArr2 = [[NSMutableArray alloc] init];
                 NSMutableArray *mutArr3 = [[NSMutableArray alloc] init];
-                for (NSDictionary *dic in arr1) {
-                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
-                    
-                    if ([infoDic isEqual:[NSNull null]]) {
+                if (arr1.count > 0) {
+                    for (NSDictionary *dic in arr1) {
+                        NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
                         
-                    }else{
-                        StudentNewsModel *model = [[StudentNewsModel alloc] init];
-                        
-                        model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                        model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                        model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                        model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                        model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
-                        model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                        model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
-                        model.coachId = cocchId;
-                        [mutArr1 addObject:model];
+                        if ([infoDic isEqual:[NSNull null]]) {
+                            
+                        }else{
+                            StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                            
+                            model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                            model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                            model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                            model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                            model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                            model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                            model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                            model.coachId = cocchId;
+                            [mutArr1 addObject:model];
+                        }
                     }
-                    
                 }
                 
                 
-                for (NSDictionary *dic in arr2) {
-                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
-                    
-                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
-                    
-                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
-                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                    model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
-                    model.coachId = cocchId;
-                    [mutArr2 addObject:model];
+                if (arr2.count >0) {
+                    for (NSDictionary *dic in arr2) {
+                        NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                        if ([infoDic isEqual:[NSNull null]]) {
+                            
+                        }else{
+                            StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                            
+                            model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                            model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                            model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                            model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                            model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                            model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                            model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                            model.coachId = cocchId;
+                            [mutArr2 addObject:model];
+                        }
+                        
+                    }
                 }
                 
-                for (NSDictionary *dic in arr3) {
-                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
-                    
-                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
-                    
-                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
-                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                    model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
-                    model.coachId = cocchId;
-                    [mutArr3 addObject:model];
+                if (arr3.count > 0) {
+                    for (NSDictionary *dic in arr3) {
+                        NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                        if ([infoDic isEqual:[NSNull null]]) {
+                            
+                        }else{
+                            StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                            
+                            model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                            model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                            model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                            model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                            model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                            model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                            model.recordId = [dic objectForKeyWithNoNsnull:@"id"];
+                            model.coachId = cocchId;
+                            [mutArr3 addObject:model];
+                        }
+                    }
                 }
+                
                 
                 [_data addObject:mutArr1];
                 [_data addObject:mutArr2];
@@ -383,8 +397,9 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/student/query/study
-    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/student/del/study"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://%@:7076/coach/student/query/study
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7076/coach/student/del/study",PUBLIC_LOCATION]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];

@@ -10,7 +10,10 @@
 #import "UIImageView+WebCache.h"
 #import "LearnRecordViewController.h"
 
+
 @interface StudentsDetailViewController ()
+
+
 
 @end
 
@@ -35,6 +38,7 @@
     }else if (btn.tag == 1005){
         //进入学车记录
         LearnRecordViewController *v = [[LearnRecordViewController alloc] init];
+        v.model = _model;
         [self.navigationController pushViewController:v animated:YES];
     }
     else{
@@ -70,6 +74,8 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+
+
 - (void)initNews{
     if (_model.logoUrl) {
         [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.logoUrl] placeholderImage:[UIImage imageNamed:@"bg_secondarylogin03_avatar"]];
@@ -81,6 +87,7 @@
     [_btn1 setTitle:_model.learnType forState:UIControlStateNormal];
     [_btn2 setTitle:_model.coachName forState:UIControlStateNormal];
     [_btn3 setTitle:_model.exercisePlace forState:UIControlStateNormal];
+    _addTime.text = [NSString stringWithFormat:@"分配时间:%@",_model.addTime];
     _progressLabel.text = _model.subject;
 }
 

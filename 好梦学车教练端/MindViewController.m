@@ -89,7 +89,7 @@
             [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
             NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/student/study/add"];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7076/coach/student/study/add",PUBLIC_LOCATION]];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];
@@ -165,7 +165,8 @@
             [mutStr replaceOccurrencesOfString:@"\\"withString:@""options:NSLiteralSearch range:range3];
             NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/manage-service/coach/student/exam"];
+            
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7072/manage-service/coach/student/exam"]];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
             [request setHTTPBody:jsonData];
             [request setHTTPMethod:@"POST"];

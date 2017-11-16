@@ -7,7 +7,10 @@
 //
 
 #import "BasicViewController.h"
+#import "StudentNewsModel.h"
 
 @interface LearnRecordViewController : BasicViewController
+
+@property (nonatomic, strong) StudentNewsModel *model;
 
 @end

@@ -67,6 +67,8 @@
 
 #define CURRENT_BOUNDS [UIScreen mainScreen].bounds.size
 
+//地址前面部分
+#define PUBLIC_LOCATION @"101.37.161.13" //测试为101.37.161.13；正式为:101.37.29.125
 
 #define TYPERATION [[UIScreen mainScreen] bounds].size.width/414
 

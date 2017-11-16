@@ -99,7 +99,8 @@
         
         
         //    NSURL *url = [NSURL URLWithString:urlstr];
-        NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/user-service/user/register"];
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://101.37.29.125:7072/user-service/user/register",PUBLIC_LOCATION]];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
         [request setHTTPBody:jsonData];
         [request setHTTPMethod:@"POST"];

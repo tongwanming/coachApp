@@ -221,7 +221,8 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     //    NSURL *url = [NSURL URLWithString:urlstr];
-    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/manage-service/coach/update/self"];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://101.37.29.125:7072/manage-service/coach/update/self",PUBLIC_LOCATION]];
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogined"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
@@ -285,7 +286,8 @@
 }
 
 - (void)getTokenActive{
-    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7072/user-service/file/img/getUploadHeadPicToken"];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://101.37.29.125:7072/user-service/file/img/getUploadHeadPicToken",PUBLIC_LOCATION]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogined"];

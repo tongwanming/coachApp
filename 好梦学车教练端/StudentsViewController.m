@@ -165,8 +165,9 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/query/student
-    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/query/student"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://%@:7076/coach/query/student
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7076/coach/query/student",PUBLIC_LOCATION]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -188,24 +189,28 @@
                 if (_data.count > 0) {
                     [_data removeAllObjects];
                 }
-                for (NSDictionary *dic in arr) {
-                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
-                    NSDictionary *coachDic = [dic objectForKey:@"coach"];
-                    NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
-                    
-                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
-                    
-                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
-                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                    model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
-                    model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
-                    model.coachId = cocchId;
-                    [_data addObject:model];
+                if (arr.count > 0) {
+                    for (NSDictionary *dic in arr) {
+                        NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                        NSDictionary *coachDic = [dic objectForKey:@"coach"];
+                        NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
+                        
+                        StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                        
+                        model.addTime = [infoDic objectForKeyWithNoNsnull:@"addTime"];
+                        model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                        model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                        model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                        model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                        model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                        model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                        model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
+                        model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
+                        model.coachId = cocchId;
+                        [_data addObject:model];
+                    }
                 }
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
                     _currentPersons.text = [NSString stringWithFormat:@"%lu人",(unsigned long)_data.count];
@@ -268,8 +273,9 @@
     NSData *jsonData = [mutStr dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    //    NSURL *url = [NSURL URLWithString:urlstr];http://101.37.29.125:7076/coach/query/student
-    NSURL *url = [NSURL URLWithString:@"http://101.37.29.125:7076/coach/query/student"];
+    //    NSURL *url = [NSURL URLWithString:urlstr];http://%@:7076/coach/query/student
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7076/coach/query/student",PUBLIC_LOCATION]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -291,24 +297,27 @@
                 if (_data.count > 0) {
                     [_data removeAllObjects];
                 }
-                for (NSDictionary *dic in arr) {
-                    NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
-                    NSDictionary *coachDic = [dic objectForKey:@"coach"];
-                    NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
-                    
-                    StudentNewsModel *model = [[StudentNewsModel alloc] init];
-                    
-                    model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                    model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                    model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                    model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                    model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
-                    model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                    model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
-                    model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
-                    model.coachId = cocchId;
-                    [_data addObject:model];
+                if (arr.count > 0) {
+                    for (NSDictionary *dic in arr) {
+                        NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
+                        NSDictionary *coachDic = [dic objectForKey:@"coach"];
+                        NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
+                        
+                        StudentNewsModel *model = [[StudentNewsModel alloc] init];
+                        
+                        model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
+                        model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
+                        model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
+                        model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
+                        model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                        model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
+                        model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
+                        model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
+                        model.coachId = cocchId;
+                        [_data addObject:model];
+                    }
                 }
+                
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];

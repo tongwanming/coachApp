@@ -27,7 +27,7 @@
     }
     _nameLabel.text = model.name;
     _desLabelOne.text = model.subject;
-    
+    _recordTime.text = model.addTime;
 }
 
 - (void)setShowRecordLabel:(BOOL)showRecordLabel{
