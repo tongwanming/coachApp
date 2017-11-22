@@ -85,7 +85,7 @@
     
     _nameLabel.text = _model.name;
     [_btn1 setTitle:_model.learnType forState:UIControlStateNormal];
-    [_btn2 setTitle:_model.coachName forState:UIControlStateNormal];
+    [_btn2 setTitle:_model.subject forState:UIControlStateNormal];
     [_btn3 setTitle:_model.exercisePlace forState:UIControlStateNormal];
     _addTime.text = [NSString stringWithFormat:@"分配时间:%@",_model.addTime];
     _progressLabel.text = _model.subject;

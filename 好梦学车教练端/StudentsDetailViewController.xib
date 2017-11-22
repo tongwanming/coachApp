@@ -190,7 +190,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyt-Ci-Mp0" customClass="FirstTopBtn">
                     <rect key="frame" x="125" y="298.5" width="125" height="60"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="张教练" image="icon_studentdetails_people.png">
+                    <state key="normal" title="张教练" image="icon_studentdetails_jincheng.png">
                         <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
@@ -248,8 +248,8 @@
         <image name="btn_my_go.png" width="8" height="14"/>
         <image name="icon_studentdetails_call.png" width="20" height="20"/>
         <image name="icon_studentdetails_car.png" width="36" height="23"/>
+        <image name="icon_studentdetails_jincheng.png" width="30" height="28"/>
         <image name="icon_studentdetails_message.png" width="22" height="20"/>
-        <image name="icon_studentdetails_people.png" width="26" height="30"/>
         <image name="icon_studentdetails_position.png" width="22" height="30"/>
         <image name="nav_studentdetails_btn_back.png" width="12" height="20"/>
         <image name="seaKing.png" width="516" height="482"/>
