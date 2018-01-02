@@ -48,7 +48,7 @@
         
         //    NSURL *url = [NSURL URLWithString:urlstr];
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http:///101.37.29.125:7072/user-service/feedback/add",PUBLIC_LOCATION]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http:///%@:7072/user-service/feedback/add",PUBLIC_LOCATION]];
         NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogined"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
         [request setHTTPBody:jsonData];

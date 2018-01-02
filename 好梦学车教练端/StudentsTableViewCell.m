@@ -27,6 +27,7 @@
         _logoImageView.image = [UIImage imageNamed:@"bg_secondarylogin03_avatar"];
     }
     _nameLabel.text = model.name;
+    _desLabel.text = [NSString stringWithFormat:@"%@学习中",model.subject];
 }
 
 

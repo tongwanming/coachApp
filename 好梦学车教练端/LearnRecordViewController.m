@@ -27,8 +27,13 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectNull]];
-    [self getData];
+   
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+     [self getData];
 }
 
 - (void)setModel:(StudentNewsModel *)model{
@@ -38,8 +43,8 @@
 - (void)getData{
     
     NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
-    __block NSString *cocchId = [userDic objectForKey:@"coachId"];
-    NSDictionary *dic =@{@"subject":[NSNull null],@"coachId":cocchId,@"type":@"",@"studentId":_model.studentId};
+    __block NSString *cocchId = [userDic objectForKey:@"userId"];
+    NSDictionary *dic =@{@"stuId":_model.studentId,@"subject":_model.subject,@"coachUserId":cocchId};
     
     NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
@@ -60,8 +65,8 @@
     
     
     //    NSURL *url = [NSURL URLWithString:urlstr];http://%@:7076/coach/query/student
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7076/coach/student/query/studyRecordList",PUBLIC_LOCATION]];
+//    @"http://101.37.161.13:7081/v1/student/study/record/list
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7082/v1/student/study/record/list",PUBLIC_LOCATION]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
@@ -85,21 +90,18 @@
                 }
                 if (arr.count > 0) {
                     for (NSDictionary *dic in arr) {
-                        NSDictionary *infoDic = [dic objectForKey:@"studentInfo"];
-                        NSDictionary *coachDic = [dic objectForKey:@"coach"];
-                        NSDictionary *placeDic = [dic objectForKey:@"trainplace"];
                         
                         StudentNewsModel *model = [[StudentNewsModel alloc] init];
                         
-                        model.addTime = [self choosedNormalDateWithStr:[dic objectForKeyWithNoNsnull:@"addTime"]];
-                        model.logoUrl = [infoDic objectForKeyWithNoNsnull:@""];
-                        model.name = [infoDic objectForKeyWithNoNsnull:@"name"];
-                        model.contacPhone = [infoDic objectForKeyWithNoNsnull:@"contactPhone"];
-                        model.learnType = [infoDic objectForKeyWithNoNsnull:@"classType"];
-                        model.studentId = [infoDic objectForKeyWithNoNsnull:@"id"];
+                        model.addTime = [self choosedNormalDateWithStr:[dic objectForKeyWithNoNsnull:@"signTime"]];
+                        model.logoUrl = [dic objectForKeyWithNoNsnull:@""];
+                        model.name = [dic objectForKeyWithNoNsnull:@"studentName"];
+//                        model.contacPhone = [dic objectForKeyWithNoNsnull:@"contactPhone"];
+//                        model.learnType = [dic objectForKeyWithNoNsnull:@"classType"];
+                        model.studentId = [dic objectForKeyWithNoNsnull:@"id"];
                         model.subject = [dic objectForKeyWithNoNsnull:@"subject"];
-                        model.coachName = [coachDic objectForKeyWithNoNsnull:@"nickname"];
-                        model.exercisePlace = [placeDic objectForKeyWithNoNsnull:@"name"];
+                        model.coachName = [dic objectForKeyWithNoNsnull:@"coachName"];
+                        model.exercisePlace = [dic objectForKeyWithNoNsnull:@"trainPlaceName"];
                         model.coachId = cocchId;
                         [_data addObject:model];
                     }
@@ -114,7 +116,7 @@
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:[jsonDict objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         
                     }];
