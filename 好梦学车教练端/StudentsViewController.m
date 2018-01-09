@@ -145,7 +145,8 @@
     
     NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
     __block NSString *cocchId = [userDic objectForKey:@"coachId"];
-    NSDictionary *dic =@{@"coachId":cocchId,@"relationStates":@"1",@"studyStates":@"1"};//0->未开始学习，1->学习中，2->暂停学习，3->申请考试，4->考试通过，5->补考中, 6->考爆
+    __block NSString *userId = [userDic objectForKey:@"userId"];
+    NSDictionary *dic =@{@"coachId":userId,@"relationStates":@"1",@"studyStates":@"1"};//0->未开始学习，1->学习中，2->暂停学习，3->申请考试，4->考试通过，5->补考中, 6->考爆
     
     NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
@@ -180,6 +181,7 @@
         if (error == nil) {
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+            NSString *message = [jsonDict objectForKey:@"message"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
@@ -218,10 +220,13 @@
             }else{
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    if (_data.count > 0) {
+                        [_data removeAllObjects];
+                    }
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:message preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                        
+                        [_tableView reloadData];
                     }];
                     [v addAction:active];
                     [self presentViewController:v animated:YES completion:^{
@@ -233,9 +238,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
+                if (_data.count > 0) {
+                    [_data removeAllObjects];
+                }
                 UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    
+                    [_tableView reloadData];
                 }];
                 [v addAction:active];
                 [self presentViewController:v animated:YES completion:^{
@@ -251,7 +259,8 @@
     
     NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"personNews"]];
     __block NSString *cocchId = [userDic objectForKey:@"coachId"];
-    NSDictionary *dic =@{@"coachId":cocchId,@"relationStates":@"1",@"studyStates":@"4"};//0->未开始学习，1->学习中，2->暂停学习，3->申请考试，4->考试通过，5->补考中, 6->考爆
+    __block NSString *userId = [userDic objectForKey:@"userId"];
+    NSDictionary *dic =@{@"coachId":userId,@"relationStates":@"1",@"studyStates":@"4"};//0->未开始学习，1->学习中，2->暂停学习，3->申请考试，4->考试通过，5->补考中, 6->考爆
     
     NSData *data1 = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonStr = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
@@ -286,6 +295,7 @@
         if (error == nil) {
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+            NSString *message = [jsonDict objectForKey:@"message"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
@@ -323,10 +333,13 @@
             }else{
                 //登录失败
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    if (_data.count > 0) {
+                        [_data removeAllObjects];
+                    }
                     //验证码输入错误
-                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:message preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                        
+                        [_tableView reloadData];
                     }];
                     [v addAction:active];
                     [self presentViewController:v animated:YES completion:^{
@@ -338,9 +351,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [CustomAlertView hideAlertView];
+                if (_data.count > 0) {
+                    [_data removeAllObjects];
+                }
                 UIAlertController *v = [UIAlertController alertControllerWithTitle:@"错误提示" message:@"获取数据失败，请稍后再试" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    
+                    [_tableView reloadData];
                 }];
                 [v addAction:active];
                 [self presentViewController:v animated:YES completion:^{

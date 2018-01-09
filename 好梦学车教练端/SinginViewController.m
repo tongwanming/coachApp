@@ -151,12 +151,13 @@
         NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error == nil) {
                 NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                NSString *success = [NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"success"]];
+                BOOL success = [[jsonDict objectForKey:@"success"] boolValue];
+                NSString *mesage = [jsonDict objectForKey:@"message"];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [CustomAlertView hideAlertView];
                 });
-                if (success.boolValue) {
+                if (success) {
                     NSDictionary *dic = [jsonDict objectForKey:@"data"];
                     
                     NSString *token = [dic objectForKey:@"token"];
@@ -196,7 +197,7 @@
                     //登录失败
                     dispatch_async(dispatch_get_main_queue(), ^{
                         //验证码输入错误
-                        UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入的账号或者密码错误，请查正后登录" preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertController *v = [UIAlertController alertControllerWithTitle:@"登录失败" message:mesage preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *active = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                             
                         }];
